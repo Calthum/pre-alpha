@@ -10,6 +10,9 @@ namespace dummyLibrary
     {
         static void Main(string[] args)
         {
+            Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
+            new tilesLib();
+            Console.ReadKey();
         }
     }
 }
