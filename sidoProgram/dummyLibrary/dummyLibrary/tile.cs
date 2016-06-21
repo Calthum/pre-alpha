@@ -140,7 +140,7 @@ namespace dummyLibrary
         /// du får dessutom bestämma hexagonernas radie med r
         /// </summary>
         /// <returns></returns>
-        public double[] XZcoordinates(int r)
+        public double[] XZcoordinates(double r)
         {
             double xCoord = r * 1 / 2 * (2 * x + y - z);
             double zCoord = r * Math.Sqrt(3) / 2 * (y + z);
