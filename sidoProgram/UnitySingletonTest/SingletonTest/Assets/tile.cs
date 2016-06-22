@@ -163,7 +163,7 @@ namespace dummyLibrary
         {
             double xCoord = r * 1 / 2 * (2 * x + y - z);
             double zCoord = r * Math.Sqrt(3) / 2 * (y + z);
-            return new double[2] { xCoord, zCoord };
+            return new double[3] { xCoord,0, zCoord };
         }
         /// <summary>
         /// returnerar tilens xz coordinater i spelet i form av 3 doublar, x, y, z

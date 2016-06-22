@@ -11,9 +11,9 @@ public class GameClass : MonoBehaviour
 
     void Update()
     {
-        if (Input.anyKeyDown)
-        {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, ManagerDummy.Instance.GetNextInt(), 0);
-        }
+        //if (Input.anyKeyDown)
+        //{
+        //    gameObject.transform.position = new Vector3(gameObject.transform.position.x, ManagerDummy.Instance.GetNextInt(), 0);
+        //}
     }
 }
