@@ -10,7 +10,7 @@ namespace dummyLibrary
     {
         static void Main(string[] args)
         {
-            Console.SetWindowSize(Console.LargestWindowWidth - 60, Console.LargestWindowHeight - 30);
+            Console.SetWindowSize(Console.LargestWindowWidth - 60, Console.LargestWindowHeight - 3);
             Console.SetWindowPosition(0, 0);
             tilesLib tileLibrary = new tilesLib();
             DrawTileList(tileLibrary.TileList);
