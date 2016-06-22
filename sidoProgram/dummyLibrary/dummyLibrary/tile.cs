@@ -119,6 +119,13 @@ namespace dummyLibrary
             }
         }
         /// <summary>
+        /// returnerar en lista med alla units i den.
+        /// </summary>
+        public List<int> UnitList
+        {
+            get { return unitIDs; }
+        }
+        /// <summary>
         /// tar bort en enhet med specificerad ID från tilen
         /// </summary>
         /// <param name="ID"></param>
@@ -147,41 +154,55 @@ namespace dummyLibrary
             return new double[2] { xCoord, zCoord };
         }
         /// <summary>
-        /// returnerar tilens xz coordinater i spelet i form av 2 doublar, x först sedan z,,
+        /// returnerar tilens xyz coordinater i spelet i form av 3 doublar, x, y, z
         /// utifrån dess matematiska xyz coordinater.
-        /// default r = 1
+        /// du får dessutom bestämma hexagonernas radie med r
+        /// y är alltid 0
         /// </summary>
         /// <returns></returns>
-        public double[] XZcoordinates()
+        public double[] XYZUnityCoordinates(double r)
         {
-            double r = 1;
             double xCoord = r * 1 / 2 * (2 * x + y - z);
             double zCoord = r * Math.Sqrt(3) / 2 * (y + z);
             return new double[2] { xCoord, zCoord };
         }
         /// <summary>
-        /// returnerar tilens 3 spelcoordinater, x, y, z
+        /// returnerar tilens xz coordinater i spelet i form av 3 doublar, x, y, z
+        /// utifrån dess matematiska xyz coordinater.
+        /// default r = 1
+        /// y = 0
         /// </summary>
         /// <returns></returns>
-        public int[]XYZGameCoordinates()
+        public double[] XYZUnityCoordinates()
+        {
+            double r = 1;
+            double xCoord = r * 1 / 2 * (2 * x + y - z);
+            double zCoord = r * Math.Sqrt(3) / 2 * (y + z);
+            return new double[3] { xCoord, 0, zCoord };
+        }
+        /// <summary>
+        /// returnerar tilens 3 libraryCoordinates, x, y, z
+        /// </summary>
+        /// <returns></returns>
+        public int[]XYZLibraryCoordinates()
         {
             return new int[3] { x, y, z };
         }
         /// <summary>
-        /// returnerar tilens 3 spelcoordinater, x, y, z
+        /// returnerar tilens 3 libraryCoordinates, x, y, z
         /// som om tilen skulle tagit ett steg DownRight
         /// </summary>
         /// <returns></returns>
-        public int[] XYZGameCoordinatesDownRight()
+        public int[] XYZLibraryCoordinatesDownRight()
         {
             return new int[3] { x + 1, y, z - 1};
         }
         /// <summary>
-        /// returnerar tilens 3 spelcoordinater, x, y, z
+        /// returnerar tilens 3 libraryCoodinates, x, y, z
         /// som om tilen skulle tagit ett steg UpRight
         /// </summary>
         /// <returns></returns>
-        public int[] XYZGameCoordinatesUpRight()
+        public int[] XYZLibraryCoordinatesUpRight()
         {
             return new int[3] { x + 1, y + 1, z};
         }

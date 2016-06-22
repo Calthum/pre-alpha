@@ -8,105 +8,174 @@ namespace dummyLibrary
 {
     class tilesLib
     {
+        // Datamedlemmar
         private List<tile> tileList;
 
+        // Metoder
         /// <summary>
-        /// skapa ett nytt library med tiles
+        /// skapar ett nytt library med tiles
+        /// Detta library kan sedan användas för att komma åt all
+        /// information kring tiles i spelet
+        /// i detta library så finns det 1 stad, 2 units, och en ö med hav runtikring sandstränder och skog.
         /// </summary>
         public tilesLib()
         {
+            tileList = new List<tile>(InitateTileListLonelyIsland()) { };
+        }
+        /// <summary>
+        /// Initerar ön lonelyIsland
+        /// </summary>
+        /// <returns></returns>
+        private List<tile> InitateTileListLonelyIsland()
+        {
+            List<tile> tempTileList = new List<tile>() { };
             string sideColor = "Blue";
-            List<int> emptyUnitIDs = new List<int> { };
-            tileList = new List<tile>();
+
+            // En första row med höjden 10 skapas
             for (int i = 0; i < 10; i++)
             {
-                tileList.Add(new tile(sideColor, -1, emptyUnitIDs, 0, i, i));
+                tempTileList.Add(new tile(sideColor, -1, new List<int> { }, 0, i, i));
             }
+
+            // Sedan skapas alternerande rows till höger om den förra, se tileList[tileList.Count - 10]
+            // Varannan så skapas en row DownRight, varannan skapas en UpRight 
             for (int i = 1; i < 15; i++)
             {
                 if (i % 2 == 0)
                 {
                     for (int i2 = 0; i2 < 10; i2++)
                     {
-                        tileList.Add(new tile(sideColor, -1, emptyUnitIDs, tileList[tileList.Count - 10].XYZGameCoordinatesUpRight()));
+                        tempTileList.Add(new tile(sideColor, -1, new List<int> { }, tempTileList[tempTileList.Count - 10].XYZLibraryCoordinatesUpRight()));
                     }
                 }
                 else
                 {
                     for (int i2 = 0; i2 < 10; i2++)
                     {
-                        tileList.Add(new tile(sideColor, -1, emptyUnitIDs, tileList[tileList.Count - 10].XYZGameCoordinatesDownRight()));
+                        tempTileList.Add(new tile(sideColor, -1, new List<int> { }, tempTileList[tempTileList.Count - 10].XYZLibraryCoordinatesDownRight()));
                     }
                 }
             }
 
+            // Ön skapas, innan detta är hela världen hav
             for (int i1 = 3; i1 < 8; i1++)
             {
                 for (int i2 = 5; i2 < 13; i2++)
                 {
-                    tileList[i2 * 10 + i1].Color = "Beige";
+                    tempTileList[i2 * 10 + i1].Color = "Beige";
                 }
             }
-            
+
+            // Skogen skapas innan detta var hela ön sandig
             for (int i1 = 4; i1 < 7; i1++)
             {
                 for (int i2 = 6; i2 < 12; i2++)
                 {
-                    tileList[i2 * 10 + i1].Color = "Green";
+                    tempTileList[i2 * 10 + i1].Color = "Green";
                 }
             }
 
-            tileList[54].CityID = 0;
+            // En stad och två enheter läggs ut
+            tempTileList[54].CityID = 0;
+            tempTileList[104].addUnit(1);
+            tempTileList[87].addUnit(2);
 
-            for (int i = 0; i < tileList.Count; i++)
+            return tempTileList;
+        }
+        /// <summary>
+        /// returnerar hela tileListen
+        /// </summary>
+        public List<tile> TileList
+        {
+            get { return tileList; }
+        }
+        /// <summary>
+        /// returnerar den tile vid givet index
+        /// är den utanför index ger den en default tile
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public tile Tile_AtIndex(int index)
+        {
+            if (index > tileList.Count || index < 0)
             {
-                if (tileList[i].Color == "Blue")
-                {
-                    Console.BackgroundColor = ConsoleColor.DarkBlue;
-                }
-                if (tileList[i].Color == "Beige")
-                {
-                    Console.BackgroundColor = ConsoleColor.DarkYellow;
-                }
-                if (tileList[i].Color == "Green")
-                {
-                    Console.BackgroundColor = ConsoleColor.Green;
-                }
-                int x = Convert.ToInt32(tileList[i].XZcoordinates(4)[0] + 3);
-                int y = Convert.ToInt32(tileList[i].XZcoordinates(2.3)[1] + 5);
-                Console.SetCursorPosition(x - 1, y - 1);
-                Console.Write("   ");
-                Console.SetCursorPosition(x - 1, y + 1);
-                Console.Write("   ");
-                Console.SetCursorPosition(x - 2, y);
-                Console.Write(" " + i);
-                if (i < 10)
-                {
-                    Console.Write(" ");
-                }
-                if (i < 100)
-                {
-                    Console.Write(" ");
-                }
-                Console.Write(" ");
-
-                if (tileList[i].CityID == 0)
-                {
-                    Console.BackgroundColor = ConsoleColor.Gray;
-                    Console.SetCursorPosition(x - 2, y - 2);
-                    Console.Write("     ");
-                    Console.SetCursorPosition(x - 3, y - 1);
-                    Console.Write("       ");
-                    Console.SetCursorPosition(x - 3, y + 1);
-                    Console.Write("       ");
-                    Console.SetCursorPosition(x - 2, y + 2);
-                    Console.Write("     ");
-                    Console.SetCursorPosition(x - 3, y);
-                    Console.ForegroundColor = ConsoleColor.DarkGreen;
-                    Console.Write(" town  ");
-                    Console.ForegroundColor = ConsoleColor.White;
-                }
+                return new tile();
             }
+            else
+            {
+                return tileList[index];
+            }
+        }
+        /// <summary>
+        /// returnerar en tile vid givet indexs koordinater i spelvärlden
+        /// med default scale då hexagoner har radien 1(m?)
+        /// har med sig båda x, y, z då y alltid är 0
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public double[] WorldCoordinates_AtIndex(int index)
+        {
+            return Tile_AtIndex(index).XYZUnityCoordinates();
+        }
+        /// <summary>
+        /// returnerar en tile vid givet indexs koordinater i spelvärlden
+        /// med default scale då hexagoner har radien given
+        /// har med sig båda x, y, z då y alltid är 0
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="radie"></param>
+        /// <returns></returns>
+        public double[] WorldCoordinates_AtIndex(int index, double radie)
+        {
+            return Tile_AtIndex(index).XYZUnityCoordinates(radie);
+        }
+        /// <summary>
+        /// returnerar en lista av ints, med alla unitIDs
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public List<int> UnitList_AtIndex(int index)
+        {
+            return Tile_AtIndex(index).UnitList;
+        }
+        /// <summary>
+        /// returnerar en tile vid givets indexs cityID
+        /// Denna är -1 om tilen inte har en stad
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public int CityID_AtIndex(int index)
+        {
+            return Tile_AtIndex(index).CityID;
+        }
+        /// <summary>
+        /// returnerar en tile vid givet indexs color
+        /// denna är "noColor" om den inte har blivit given en color
+        /// men hela världen kommer antigen vara: Blå, Beige, eller Green
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public string Color_AtIndex(int index)
+        {
+            return Tile_AtIndex(index).Color;
+        }
+        /// <summary>
+        /// returnerar en tile vid givet indexs libraryCoordinates
+        /// Dessa skall INTE användas för att rita ut hexagoner i världen
+        /// utan endast för eventuell mattematik
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public int[] LibraryCoordinates_AtIndex(int index)
+        {
+            return Tile_AtIndex(index).XYZLibraryCoordinates();
+        }
+        /// <summary>
+        /// tileListens count
+        /// </summary>
+        public int Count
+        {
+            get { return tileList.Count; }
         }
     }
 }
