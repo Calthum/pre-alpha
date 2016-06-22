@@ -47,7 +47,10 @@
   <ItemGroup>
      <Compile Include="Assets\GameClass.cs" />
      <Compile Include="Assets\Manager.cs" />
+     <Compile Include="Assets\ManagerDummy.cs" />
      <Compile Include="Assets\Singleton.cs" />
+     <Compile Include="Assets\tile.cs" />
+     <Compile Include="Assets\tilesLib.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

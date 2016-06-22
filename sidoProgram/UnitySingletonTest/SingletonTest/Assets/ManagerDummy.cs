@@ -1,0 +1,15 @@
+﻿using UnityEngine;
+using System.Collections;
+using dummyLibrary;
+
+public class ManagerDummy : Singleton<ManagerDummy>
+{
+    protected ManagerDummy() { } // guarantee this will be always a singleton only - can't use the constructor!
+
+    private tilesLib Tiles = new tilesLib();
+
+    public int GetNextInt()
+    {
+        return Tiles.Count - 147;
+    }
+}
