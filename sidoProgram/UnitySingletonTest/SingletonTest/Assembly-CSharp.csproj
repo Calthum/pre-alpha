@@ -45,13 +45,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\GameClass.cs" />
-     <Compile Include="Assets\Manager.cs" />
-     <Compile Include="Assets\ManagerDummy.cs" />
-     <Compile Include="Assets\Singleton.cs" />
-     <Compile Include="Assets\spawnTiles.cs" />
-     <Compile Include="Assets\tile.cs" />
-     <Compile Include="Assets\tilesLib.cs" />
+     <Compile Include="Assets\Scripts\ManagerDummy.cs" />
+     <Compile Include="Assets\Scripts\MoveCamera.cs" />
+     <Compile Include="Assets\Scripts\Singleton.cs" />
+     <Compile Include="Assets\Scripts\spawnTiles.cs" />
+     <Compile Include="Assets\Scripts\tile.cs" />
+     <Compile Include="Assets\Scripts\tilesLib.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
