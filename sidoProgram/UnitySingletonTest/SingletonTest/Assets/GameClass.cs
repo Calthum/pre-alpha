@@ -14,6 +14,9 @@ public class GameClass : MonoBehaviour
         if (Input.anyKeyDown)
         {
             gameObject.transform.position = new Vector3(gameObject.transform.position.x, ManagerDummy.Instance.GetNextInt(), 0);
+            Quaternion.EulerAngles(1,1,1);
+            
+            
         }
     }
 }
