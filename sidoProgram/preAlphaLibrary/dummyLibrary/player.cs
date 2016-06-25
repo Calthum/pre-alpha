@@ -14,6 +14,13 @@ namespace preAlphaLibrary
         private infoLib infoLibrary;
         private List<string> policyList = new List<string> { };
 
+        public player()
+        {
+            this.gold = 0;
+            this.culture = 0;
+            policyList.Clear();
+        }
+
         /// <summary>
         /// returnerar den tileYield+ som alla policies ger till en specifik tile.
         /// </summary>

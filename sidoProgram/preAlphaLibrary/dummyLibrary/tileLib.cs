@@ -171,6 +171,15 @@ namespace preAlphaLibrary
             return Tile_AtIndex(index).XYZLibraryCoordinates();
         }
         /// <summary>
+        /// returnerar en sträng som visar vad en tile vid givet indexs har för yield
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public string tileYield_AtIndex(int index)
+        {
+            return Tile_AtIndex(index).TileYieldString();
+        }
+        /// <summary>
         /// tileListens count
         /// </summary>
         public int Count

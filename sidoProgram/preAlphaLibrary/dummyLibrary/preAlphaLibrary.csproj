@@ -7,8 +7,8 @@
     <ProjectGuid>{9E44232F-B682-49A5-8C55-D48F45507461}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>dummyLibrary</RootNamespace>
-    <AssemblyName>dummyLibrary</AssemblyName>
+    <RootNamespace>preAlphaLibrary</RootNamespace>
+    <AssemblyName>preAlphaLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,10 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="infoLib.cs" />
+    <Compile Include="player.cs" />
+    <Compile Include="playerLib.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tile.cs" />
-    <Compile Include="tilesLib.cs" />
+    <Compile Include="tileLib.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
