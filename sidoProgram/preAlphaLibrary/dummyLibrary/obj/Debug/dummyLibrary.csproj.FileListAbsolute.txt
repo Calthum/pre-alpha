@@ -1,0 +1,9 @@
+D:\Git\pre-alpha\sidoProgram\dummyLibrary\dummyLibrary\bin\Debug\dummyLibrary.exe.config
+D:\Git\pre-alpha\sidoProgram\dummyLibrary\dummyLibrary\bin\Debug\dummyLibrary.exe
+D:\Git\pre-alpha\sidoProgram\dummyLibrary\dummyLibrary\bin\Debug\dummyLibrary.pdb
+D:\Git\pre-alpha\sidoProgram\dummyLibrary\dummyLibrary\obj\Debug\dummyLibrary.csprojResolveAssemblyReference.cache
+D:\Git\pre-alpha\sidoProgram\dummyLibrary\dummyLibrary\obj\Debug\dummyLibrary.exe
+D:\Git\pre-alpha\sidoProgram\dummyLibrary\dummyLibrary\obj\Debug\dummyLibrary.pdb
+D:\Git\pre-alpha\sidoProgram\preAlphaLibrary\dummyLibrary\bin\Debug\dummyLibrary.exe.config
+D:\Git\pre-alpha\sidoProgram\preAlphaLibrary\dummyLibrary\obj\Debug\dummyLibrary.exe
+D:\Git\pre-alpha\sidoProgram\preAlphaLibrary\dummyLibrary\obj\Debug\dummyLibrary.pdb
