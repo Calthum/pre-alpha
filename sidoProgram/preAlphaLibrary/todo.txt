@@ -1,0 +1,6 @@
+
+	sistajaggjorde: uppdatera city?
+
+	infoLib skall innehålla saker som, string infolib.policies.OceanPeople så att man hittar rätt policy direkt
+		samma gäller för saker såsom building effects
+	sammanfoga effects med policy?

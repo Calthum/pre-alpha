@@ -186,5 +186,21 @@ namespace preAlphaLibrary
         {
             get { return tileList.Count; }
         }
+        /// <summary>
+        /// returnerar den tile som har det givna cityIDn i sig
+        /// </summary>
+        /// <param name="cityID"></param>
+        /// <returns></returns>
+        public tile FindTile_AtCityID(int cityID)
+        {
+            for (int i = 0; i < tileList.Count; i++)
+            {
+                if (tileList[i].CityID == cityID)
+                {
+                    return tileList[i];
+                }
+            }
+            return new tile();
+        }
     }
 }

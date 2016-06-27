@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="building.cs" />
+    <Compile Include="city.cs" />
     <Compile Include="infoLib.cs" />
     <Compile Include="player.cs" />
     <Compile Include="playerLib.cs" />

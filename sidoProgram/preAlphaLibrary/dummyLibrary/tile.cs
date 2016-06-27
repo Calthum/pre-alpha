@@ -37,6 +37,10 @@ namespace preAlphaLibrary
         /// </summary>
         private int[] tileYield = new int[5] { 0, 0, 0, 0, 0 };
         private infoLib infoLibrary;
+        /// <summary>
+        /// en int som beskriver vilken stad som workar den tilen
+        /// </summary>
+        public int WorkedByCity;
 
         // Konstruktorer
         /// <summary>
@@ -88,6 +92,14 @@ namespace preAlphaLibrary
         }
 
         // Metoder
+        /// <summary>
+        /// assignar en tile  att bli workad av en citizen
+        /// </summary>
+        /// <param name="cityID"></param>
+        public void AssingWorked(int cityID)
+        {
+            WorkedByCity = cityID;
+        }
         /// <summary>
         /// returnerar en sträng som visar vad tilen har för yield i textform
         /// </summary>
@@ -232,7 +244,7 @@ namespace preAlphaLibrary
         {
             double xCoord = r * 1 / 2 * (2 * x + y - z);
             double zCoord = r * Math.Sqrt(3) / 2 * (y + z);
-            return new double[2] { xCoord, zCoord };
+            return new double[3] { xCoord, 0, zCoord };
         }
         /// <summary>
         /// returnerar tilens xz coordinater i spelet i form av 3 doublar, x, y, z

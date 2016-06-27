@@ -10,9 +10,11 @@ namespace preAlphaLibrary
     {
         private int gold = 0;
         private int culture = 0;
+        private int unitcap = 3;
 
         private infoLib infoLibrary;
         private List<string> policyList = new List<string> { };
+        private List<building> availableBuildings = new List<building> { };
 
         public player()
         {
@@ -38,6 +40,18 @@ namespace preAlphaLibrary
                 }
             }
             return sum;
+        }
+
+        public void addPolicy(string input)
+        {
+            if (input == "OceanPeople")
+            {
+                policyList.Add("OceanPeople");
+            }
+            if (input == "LandPeople")
+            {
+                policyList.Add("LandPeople");
+            }
         }
     }
 }

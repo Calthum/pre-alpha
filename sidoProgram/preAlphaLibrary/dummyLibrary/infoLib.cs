@@ -20,13 +20,50 @@ namespace preAlphaLibrary
 
         public int[] getTileYieldFromPolicy(string tileType, string policyString)
         {
-            if (tileType == "Forest" && policyString == "Roamers") { return new int[5] { 1, 0, 0, 0, 0 }; }
-            if (tileType == "Sand" && policyString == "Roamers") { return new int[5] { 1, 0, 0, 0, 0 }; }
+            if (tileType == "Forest" && policyString == "LandPeople") { return new int[5] { 1, 0, 0, 0, 0 }; }
+            if (tileType == "Sand" && policyString == "LandPeople") { return new int[5] { 1, 0, 0, 0, 0 }; }
 
             if (tileType == "Sand" && policyString == "OceanPeople") { return new int[5] { 0, 0, 2, 0, 0 }; }
             if (tileType == "Ocean" && policyString == "OceanPeople") { return new int[5] { 0, 0, 2, 0, 0 }; }
 
             return new int[5] { 0, 0, 0, 0, 0 };
         }
+
+        public int[] getCityYieldFromEffect(string effect)
+        {
+            if (effect == "granaryEffect")
+            {
+                return new int[5] { 5, 0, 0, 0, 0 };
+            }
+
+            return new int[5] { 0, 0, 0, 0, 0 };
+        }
+
+        public int getCityHpFromEffect(string effect)
+        {
+            if (effect == "wallEffect")
+            {
+                return 100;
+            }
+
+            return 0;
+        }
+
+        public int getUnitCapFromEffect(string effect)
+        {
+            if (effect == "1unitcap+")
+            {
+                return 1;
+            }
+
+            return 0;
+        }
+
+        public building Granary()
+        { return new building("Granary", "Ger din stad 5 food", "granaryEffect", 100, 120); }
+        public building Walls()
+        { return new building("Walls", "Ger din stad 100 mer hp", "wallEffect", 50, 200); }
+        public building Barracks()
+        { return new building("Barracks", "Ger dig 1 mer unitcap", "1unitcap+", 70, 70); }
     }
 }
