@@ -68,9 +68,9 @@ namespace preAlphaLibrary
         { return new building("Barracks", "Ger dig 1 mer unitcap", "1unitcap+", 70, 70); }
 
         // Units
-        public unit Scout()
-        { return new unit("Scout", 30, 5, 3, 1); }
-        public unit Warrior()
-        { return new unit("Warrior", 100, 50, 2, 1); }
+        public unit Scout(string Owner, int unitID)
+        { return new unit("Scout",Owner, 30, 5, 3, 1, unitID); }
+        public unit Warrior(string Owner, int unitID)
+        { return new unit("Warrior",Owner, 100, 50, 2, 1, unitID); }
     }
 }

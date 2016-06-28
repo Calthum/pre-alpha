@@ -286,5 +286,16 @@ namespace preAlphaLibrary
         {
             return new int[3] { x + 1, y + 1, z };
         }
+        public bool unitExists(int unitID)
+        {
+            for (int i = 0; i < unitIDs.Count; i++)
+            {
+                if (unitIDs[i] == unitID)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

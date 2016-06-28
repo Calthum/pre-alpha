@@ -12,13 +12,18 @@ namespace preAlphaLibrary
         public int MaxAtk, CurrentAtk;
         public int MaxMovePoints, CurrentMovePoints;
         public int MaxCanAtk, CurrentCanAtk;
+        public int spellCD = 0;
+        public int unitID;
 
         public string owner;
         public string name;
 
-        public unit(string name, int MaxHp, int MaxAtk, int maxMovePoints, int MaxCanAtk)
+        // en spelllist?
+
+        public unit(string name, string owner, int MaxHp, int MaxAtk, int maxMovePoints, int MaxCanAtk, int unitID)
         {
             this.name = name;
+            this.owner = owner;
             this.MaxHp = MaxHp;
             this.MaxAtk = MaxAtk;
             this.MaxMovePoints = maxMovePoints;
@@ -27,12 +32,30 @@ namespace preAlphaLibrary
             CurrentAtk = MaxAtk;
             CurrentMovePoints = maxMovePoints;
             CurrentCanAtk = MaxCanAtk;
+
+            this.unitID = unitID;
+        }
+
+        /// <summary>
+        /// Du kan bara casta en spell om din karaktär heter Hero
+        /// </summary>
+        public void castSpellPlaceholder()
+        {
+            if (name == "Hero" && spellCD == 0)
+            {
+                CurrentHp = MaxHp;
+                spellCD = 3;
+            }
         }
 
         public void newTurn()
         {
             CurrentCanAtk = MaxCanAtk;
             CurrentMovePoints = MaxMovePoints;
+            if (spellCD > 0)
+            {
+                spellCD--;
+            }
         }
 
         public void BattleAnotherUnit(unit Enemy)

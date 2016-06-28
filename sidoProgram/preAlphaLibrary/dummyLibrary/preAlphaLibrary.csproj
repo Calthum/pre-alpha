@@ -52,6 +52,7 @@
     <Compile Include="tile.cs" />
     <Compile Include="tileLib.cs" />
     <Compile Include="unit.cs" />
+    <Compile Include="unitLib.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

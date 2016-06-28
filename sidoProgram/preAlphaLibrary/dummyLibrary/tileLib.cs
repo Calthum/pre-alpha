@@ -77,8 +77,8 @@ namespace preAlphaLibrary
 
             // En stad och två enheter läggs ut
             tempTileList[54].CityID = 0;
-            tempTileList[104].addUnit(1);
-            tempTileList[87].addUnit(2);
+            tempTileList[104].addUnit(0);
+            tempTileList[87].addUnit(1);
 
             return tempTileList;
         }
@@ -171,6 +171,22 @@ namespace preAlphaLibrary
             return Tile_AtIndex(index).XYZLibraryCoordinates();
         }
         /// <summary>
+        /// returnerar en tile vid givna librarycoordinater
+        /// </summary>
+        /// <param name="XYZCoord"></param>
+        /// <returns></returns>
+        public tile FindTile_AtLibraryCoordinates(int[] XYZCoord)
+        {
+            for (int i = 0; i < tileList.Count; i++)
+            {
+                if (tileList[i].XYZLibraryCoordinates() == XYZCoord)
+                {
+                    return tileList[i];
+                }
+            }
+            return new tile();
+        }
+        /// <summary>
         /// returnerar en sträng som visar vad en tile vid givet indexs har för yield
         /// </summary>
         /// <param name="index"></param>
@@ -201,6 +217,25 @@ namespace preAlphaLibrary
                 }
             }
             return new tile();
+        }
+        /// <summary>
+        /// ge två ettor till xyz, bestäm positivt eller inte, och säg vilken unit som skall göras med
+        /// </summary>
+        /// <param name="tileIndex"></param>
+        /// <param name="unitID"></param>
+        /// <param name="postiveORnegative"></param>
+        /// <param name="XYZ"></param>
+        public void MoveUnit(int tileIndex, int unitID, int postiveORnegative, int[] XYZ)
+        {
+            if (tileList[tileIndex].unitExists(unitID))
+            {
+                tileList[tileIndex].removeUnit(unitID);
+                XYZ[0] = XYZ[0] * postiveORnegative;
+                XYZ[1] = XYZ[1] * postiveORnegative;
+                XYZ[2] = XYZ[2] * postiveORnegative;
+
+                FindTile_AtLibraryCoordinates(XYZ).addUnit(unitID);
+            }
         }
     }
 }
