@@ -13,7 +13,7 @@ public class GameClass : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, Manager.Instance.GetNextInt(), 0);
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, ManagerDummy.Instance.GetNextInt(), 0);
         }
     }
 }
