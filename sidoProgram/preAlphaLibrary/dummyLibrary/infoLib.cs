@@ -59,11 +59,18 @@ namespace preAlphaLibrary
             return 0;
         }
 
+        // Buildings
         public building Granary()
         { return new building("Granary", "Ger din stad 5 food", "granaryEffect", 100, 120); }
         public building Walls()
         { return new building("Walls", "Ger din stad 100 mer hp", "wallEffect", 50, 200); }
         public building Barracks()
         { return new building("Barracks", "Ger dig 1 mer unitcap", "1unitcap+", 70, 70); }
+
+        // Units
+        public unit Scout()
+        { return new unit("Scout", 30, 5, 3, 1); }
+        public unit Warrior()
+        { return new unit("Warrior", 100, 50, 2, 1); }
     }
 }

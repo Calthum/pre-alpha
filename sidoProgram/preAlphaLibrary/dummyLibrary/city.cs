@@ -8,14 +8,17 @@ namespace preAlphaLibrary
 {
     class city
     {
-        private string name;
-        private string owner;
-        private int cityID;
-        private int foodStash;
-        private int peopleCap;
-        private int unassignedPeople;
-        private int[] cityYield = new int[5];
+        public string name;
+        public string owner;
+        public int cityID;
+        public int foodStash;
+        public int peopleCap;
+        public int unassignedPeople;
+        public int cityHP;
+        public int[] cityYield = new int[5];
         public int unitplusCap = 0;
+        public int productionProgress;
+        public building buildingInProgress;
 
         private infoLib infoLibrary;
         public tileLib tileLibrary;
@@ -31,6 +34,30 @@ namespace preAlphaLibrary
             this.cityID = cityID;
         }
 
+        public void newTurn()
+        {
+            foodStash += cityYield[2];
+            productionProgress += cityYield[0];
+            if (foodStash > 10)
+            {
+                peopleCap += 1;
+                unassignedPeople += 1;
+            }
+        }
+        public void checkForFinishedBuilding()
+        {
+            if (productionProgress >= buildingInProgress.prodCost)
+            {
+                buildingList.Add(buildingInProgress);
+                buildingInProgress = null;
+            }
+        }
+        public void UpdateWholeCity()
+        {
+            UpdateCityYield();
+            updateUnitplusCap();
+            updateCityHP();
+        }
         /// <summary>
         /// returnerar stadens yield ifrån folk som arbetar utanför staden
         /// </summary>
@@ -112,11 +139,12 @@ namespace preAlphaLibrary
         /// <summary>
         /// Uppdaterar cityYield utifrån invånare, policy och byggnader
         /// </summary>
-        public void UpdateTileYield()
+        public void UpdateCityYield()
         {
             cityYieldZero();
             cityYield = cityYieldAdd(infoLibrary.getTileTypeYield(tileLibrary.FindTile_AtCityID(cityID).TileTypeString));
             cityYield = cityYieldAdd(CityYieldFromBuildings());
+            cityYield = cityYieldAdd(CityYieldFromPeopleWorking());
             cityYield[5] = peopleCap;
             cityYield[4] = peopleCap / 2;
         }
@@ -152,6 +180,14 @@ namespace preAlphaLibrary
             for (int i = 0; i < buildingList.Count; i++)
             {
                 unitplusCap += infoLibrary.getUnitCapFromEffect(buildingList[i].effect);
+            }
+        }
+        public void updateCityHP()
+        {
+            cityHP = 30;
+            for (int i = 0; i < buildingList.Count; i++)
+            {
+                cityHP += infoLibrary.getCityHpFromEffect(buildingList[i].effect);
             }
         }
     }

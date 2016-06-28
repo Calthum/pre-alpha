@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="building.cs" />
     <Compile Include="city.cs" />
+    <Compile Include="cityLib.cs" />
     <Compile Include="infoLib.cs" />
     <Compile Include="player.cs" />
     <Compile Include="playerLib.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tile.cs" />
     <Compile Include="tileLib.cs" />
+    <Compile Include="unit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

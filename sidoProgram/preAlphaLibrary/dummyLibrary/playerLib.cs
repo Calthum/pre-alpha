@@ -8,7 +8,7 @@ namespace preAlphaLibrary
 {
     class playerLib
     {
-        private List<player> playerList;
+        public List<player> playerList;
 
         /// <summary>
         /// Skapar ett nytt library med en default spelare i sig

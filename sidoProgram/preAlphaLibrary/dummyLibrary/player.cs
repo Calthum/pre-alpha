@@ -11,6 +11,7 @@ namespace preAlphaLibrary
         private int gold = 0;
         private int culture = 0;
         private int unitcap = 3;
+        private string owner;
 
         private infoLib infoLibrary;
         private List<string> policyList = new List<string> { };
@@ -21,6 +22,7 @@ namespace preAlphaLibrary
             this.gold = 0;
             this.culture = 0;
             policyList.Clear();
+            this.owner = "max";
         }
 
         /// <summary>
@@ -41,16 +43,28 @@ namespace preAlphaLibrary
             }
             return sum;
         }
-
         public void addPolicy(string input)
         {
-            if (input == "OceanPeople")
+            if (input == "OceanPeople" && culture > 10)
             {
                 policyList.Add("OceanPeople");
+                culture -= 10;
             }
-            if (input == "LandPeople")
+            if (input == "LandPeople" && culture > 10)
             {
                 policyList.Add("LandPeople");
+                culture -= 10;
+            }
+        }
+        public void addCultureAndGold(cityLib cityLibrary)
+        {
+            for (int i = 0; i < cityLibrary.cityList.Count; i++)
+            {
+                if (cityLibrary.cityList[i].owner == this.owner)
+                {
+                    culture += cityLibrary.cityList[i].cityYield[3];
+                    gold += cityLibrary.cityList[i].cityYield[1];
+                }
             }
         }
     }
