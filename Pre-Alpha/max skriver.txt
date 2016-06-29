@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-max skriver hej
-=======
-GET FUKT SON
->>>>>>> origin/master
+hej maxasd
