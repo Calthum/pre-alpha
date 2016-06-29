@@ -77,6 +77,9 @@ namespace preAlphaLibrary
 
             // En stad och två enheter läggs ut
             tempTileList[54].CityID = 0;
+            //tempTileList[104].addUnit(0);
+            //tempTileList[87].addUnit(1);
+            //tempTileList[125].addUnit(2);
 
             return tempTileList;
         }

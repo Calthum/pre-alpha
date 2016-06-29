@@ -10,6 +10,7 @@ public class spawnTiles : MonoBehaviour {
     Vector3 clonePos;
 	// Use this for initialization
 	void Start () {
+        ManagerDummy.Instance.initializeAll();
         instantiateThis = GameObject.Find("Tile");
         instantiateCity = GameObject.Find("CityLVL1");
         instantiateUnit = GameObject.Find("Orc");
