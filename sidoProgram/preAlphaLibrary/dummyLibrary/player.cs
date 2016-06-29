@@ -8,10 +8,11 @@ namespace preAlphaLibrary
 {
     class player
     {
-        private int gold = 0;
-        private int culture = 0;
-        private int unitcap = 3;
-        private string owner;
+        public int gold = 0;
+        public int culture = 0;
+        public int unitcap = 3;
+        public string owner;
+        public int science = 0;
 
         private infoLib infoLibrary;
         private List<string> policyList = new List<string> { };
@@ -56,7 +57,7 @@ namespace preAlphaLibrary
                 culture -= 10;
             }
         }
-        public void addCultureAndGold(cityLib cityLibrary)
+        public void addCultureAndGoldAndScience(cityLib cityLibrary)
         {
             for (int i = 0; i < cityLibrary.cityList.Count; i++)
             {
@@ -64,6 +65,7 @@ namespace preAlphaLibrary
                 {
                     culture += cityLibrary.cityList[i].cityYield[3];
                     gold += cityLibrary.cityList[i].cityYield[1];
+                    science += cityLibrary.cityList[i].cityYield[4];
                 }
             }
         }

@@ -70,5 +70,13 @@ namespace preAlphaLibrary
                 unitList.RemoveAt(FindIndexOfUnit_AtUnitID(Defender.unitID));
             }
         }
+        
+        public void allUnitsNewTurn()
+        {
+            for (int i = 0; i < unitList.Count; i++)
+            {
+                unitList[i].newTurn();
+            }
+        }
     }
 }

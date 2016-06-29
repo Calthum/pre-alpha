@@ -34,5 +34,13 @@ namespace preAlphaLibrary
                 return playerList[index];
             }
         }
+
+        public void newTurn(cityLib cityLibrary)
+        {
+            for (int i = 0; i < playerList.Count; i++)
+            {
+                playerList[i].addCultureAndGoldAndScience(cityLibrary);
+            }
+        }
     }
 }

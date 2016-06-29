@@ -8,11 +8,11 @@ namespace preAlphaLibrary
 {
     class Program
     {
-        infoLib infoLibrary;
-        tileLib tileLibrary;
-        playerLib playerLibrary;
-        cityLib cityLibrary;
-        unitLib unitLibrary;
+        public infoLib infoLibrary;
+        public tileLib tileLibrary;
+        public playerLib playerLibrary;
+        public cityLib cityLibrary;
+        public unitLib unitLibrary;
 
         static void Main(string[] args)
         {
@@ -30,6 +30,13 @@ namespace preAlphaLibrary
             playerLibrary = new playerLib();
             cityLibrary = new cityLib(tileLibrary);
             unitLibrary = new unitLib(tileLibrary);
+        }
+
+        public void nextTurn()
+        {
+            playerLibrary.newTurn(cityLibrary);
+            cityLibrary.allCitiesNewTurn(playerLibrary);
+            unitLibrary.allUnitsNewTurn();
         }
 
         public static void DrawTileList(List<tile> tileList)

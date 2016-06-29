@@ -14,5 +14,13 @@ namespace preAlphaLibrary
         {
             cityList.Add(new city("maxTown", "max", tileLibrary, 0));
         }
+
+        public void allCitiesNewTurn(playerLib playerLibrary)
+        {
+            for (int i = 0; i < cityList.Count; i++)
+            {
+                cityList[i].newTurn();
+            }
+        }
     }
 }

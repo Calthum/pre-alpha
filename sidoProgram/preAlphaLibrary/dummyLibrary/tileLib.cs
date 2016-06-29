@@ -239,17 +239,68 @@ namespace preAlphaLibrary
         /// <param name="unitID"></param>
         /// <param name="postiveORnegative"></param>
         /// <param name="XYZ"></param>
-        public void MoveUnit(int tileIndex, int unitID, int postiveORnegative, int[] XYZ)
+        public void MoveUnit(int unitID, tile tileAt, tile tileTo, unitLib uLib)
         {
-            if (tileList[tileIndex].unitExists(unitID))
+            if (tileAt.unitExists(unitID) && Tile_IsAdjacentTo(tileAt, tileTo))
             {
-                tileList[tileIndex].removeUnit(unitID);
-                XYZ[0] = XYZ[0] * postiveORnegative;
-                XYZ[1] = XYZ[1] * postiveORnegative;
-                XYZ[2] = XYZ[2] * postiveORnegative;
+                tileAt.removeUnit(unitID);
+                tileTo.addUnit(unitID);
 
-                FindTile_AtLibraryCoordinates(XYZ).addUnit(unitID);
+                uLib.unitList[uLib.FindIndexOfUnit_AtUnitID(unitID)].CurrentMovePoints--;
             }
+        }
+        public bool Tile_IsAdjacentTo(tile tile1, tile tile2)
+        {
+            int[] temp = new int[3];
+            temp = tile1.XYZLibraryCoordinates();
+            temp[0]++;
+            temp[1]++;
+            //temp[2];
+            if (temp == tile2.XYZLibraryCoordinates())
+            {
+                return true;
+            }
+            temp = tile1.XYZLibraryCoordinates();
+            temp[1]++;
+            temp[2]++;
+            //temp[2];
+            if (temp == tile2.XYZLibraryCoordinates())
+            {
+                return true;
+            }
+            temp = tile1.XYZLibraryCoordinates();
+            temp[2]++;
+            temp[0]++;
+            //temp[2];
+            if (temp == tile2.XYZLibraryCoordinates())
+            {
+                return true;
+            }
+            temp = tile1.XYZLibraryCoordinates();
+            temp[0]--;
+            temp[1]--;
+            //temp[2];
+            if (temp == tile2.XYZLibraryCoordinates())
+            {
+                return true;
+            }
+            temp = tile1.XYZLibraryCoordinates();
+            temp[1]--;
+            temp[2]--;
+            //temp[2];
+            if (temp == tile2.XYZLibraryCoordinates())
+            {
+                return true;
+            }
+            temp = tile1.XYZLibraryCoordinates();
+            temp[2]--;
+            temp[0]--;
+            //temp[2];
+            if (temp == tile2.XYZLibraryCoordinates())
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
