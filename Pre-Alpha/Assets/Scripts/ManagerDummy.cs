@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
-using dummyLibrary;
+using preAlphaLibrary;
 using System.Collections.Generic;
 
 public class ManagerDummy : Singleton<ManagerDummy>
 {
     protected ManagerDummy() { } // guarantee this will be always a singleton only - can't use the constructor!
 
-    private tilesLib Tiles = new tilesLib();
+    private tileLib Tiles = new tileLib();
     
     public int Count()
     {

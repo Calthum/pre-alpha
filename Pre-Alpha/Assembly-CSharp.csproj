@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{677B2EA6-39BD-CBD7-159E-90DCE5101523}</ProjectGuid>
+    <ProjectGuid>{7CBEC971-5719-04F7-CE32-19F9E2A6BE1E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -47,10 +47,19 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\ManagerDummy.cs" />
      <Compile Include="Assets\Scripts\MoveCamera.cs" />
+     <Compile Include="Assets\Scripts\Program.cs" />
      <Compile Include="Assets\Scripts\Singleton.cs" />
+     <Compile Include="Assets\Scripts\building.cs" />
+     <Compile Include="Assets\Scripts\city.cs" />
+     <Compile Include="Assets\Scripts\cityLib.cs" />
+     <Compile Include="Assets\Scripts\infoLib.cs" />
+     <Compile Include="Assets\Scripts\player.cs" />
+     <Compile Include="Assets\Scripts\playerLib.cs" />
      <Compile Include="Assets\Scripts\spawnTiles.cs" />
      <Compile Include="Assets\Scripts\tile.cs" />
-     <Compile Include="Assets\Scripts\tilesLib.cs" />
+     <Compile Include="Assets\Scripts\tileLib.cs" />
+     <Compile Include="Assets\Scripts\unit.cs" />
+     <Compile Include="Assets\Scripts\unitLib.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

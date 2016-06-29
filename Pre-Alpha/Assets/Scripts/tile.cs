@@ -3,21 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace dummyLibrary
+
+namespace preAlphaLibrary
 {
     class tile
     {
         // Datamedlemmar
         /// <summary>
-        /// noColor by default
-        /// annars har den en color i string som man kan förvänta sig
+        /// tom string by default
+        /// annars har den en tileType string som beskriver om den är en hill eller inte osv.
         /// </summary>
-        private string colorString = "noColor";
+        private string tileTypeString = "";
         /// <summary>
         /// -1 om tilen inte har en stad på sig
         /// annars har den en postitiv integer som specificerar vilken stad den har på sig
         /// </summary>
         private int cityID = -1;
+        /// <summary>
+        /// -1 om tilen inte är ägd utav någon, 0-x om den är ägd av spelare 0-x.
+        /// </summary>
+        private int playerOwner = -1;
         /// <summary>
         /// int lista över vilka units som finns på tilen
         /// dessa representeras då genom sin ID
@@ -26,17 +31,27 @@ namespace dummyLibrary
         private int x = 0;
         private int y = 0;
         private int z = 0;
+        /// <summary>
+        /// tilens yield i form av en int array size 5, i ordningen:
+        /// food, prod, gold, culture, science 
+        /// </summary>
+        private int[] tileYield = new int[5] { 0, 0, 0, 0, 0 };
+        private infoLib infoLibrary;
+        /// <summary>
+        /// en int som beskriver vilken stad som workar den tilen
+        /// </summary>
+        public int WorkedByCity;
 
         // Konstruktorer
         /// <summary>
         /// initerar en tile med de värden som du ger den
         /// </summary>
-        /// <param name="colorString"></param>
+        /// <param name="tileTypeString"></param>
         /// <param name="cityID"></param>
         /// <param name="unitIDs"></param>
-        public tile(string colorString, int cityID, List<int> unitIDs, int x, int y, int z)
+        public tile(string tileTypeString, int cityID, List<int> unitIDs, int x, int y, int z)
         {
-            this.colorString = colorString;
+            this.tileTypeString = tileTypeString;
             this.cityID = cityID;
             this.unitIDs = unitIDs;
             this.x = x;
@@ -52,7 +67,7 @@ namespace dummyLibrary
         /// </summary>
         public tile()
         {
-            this.colorString = "noColor";
+            this.tileTypeString = "";
             this.cityID = -1;
             this.unitIDs.Clear();
             this.x = 0;
@@ -63,12 +78,12 @@ namespace dummyLibrary
         /// initerar en tile med de värden som du ger den
         /// fast denna tar en array av coordinater istället
         /// </summary>
-        /// <param name="colorString"></param>
+        /// <param name="tileTypeString"></param>
         /// <param name="cityID"></param>
         /// <param name="unitIDs"></param>
-        public tile(string colorString, int cityID, List<int> unitIDs, int[] XYZarray)
+        public tile(string tileTypeString, int cityID, List<int> unitIDs, int[] XYZarray)
         {
-            this.colorString = colorString;
+            this.tileTypeString = tileTypeString;
             this.cityID = cityID;
             this.unitIDs = unitIDs;
             this.x = XYZarray[0];
@@ -78,22 +93,88 @@ namespace dummyLibrary
 
         // Metoder
         /// <summary>
-        /// get + set för colorString
-        /// om du ger den en tom string ""
-        /// så blir färgen "noColor"
+        /// assignar en tile  att bli workad av en citizen
         /// </summary>
-        public string Color
+        /// <param name="cityID"></param>
+        public void AssingWorked(int cityID)
         {
-            get { return colorString; }
+            WorkedByCity = cityID;
+        }
+        /// <summary>
+        /// returnerar en sträng som visar vad tilen har för yield i textform
+        /// </summary>
+        /// <returns></returns>
+        public string TileYieldString()
+        {
+            string temp = "";
+            if (tileYield[0] > 0)
+            {
+                temp += tileYield[0] + " f";
+            }
+            if (tileYield[1] > 0)
+            {
+                temp += " " + tileYield[1] + " p";
+            }
+            if (tileYield[2] > 0)
+            {
+                temp += " " + tileYield[2] + " g";
+            }
+            if (tileYield[3] > 0)
+            {
+                temp += " " + tileYield[3] + " c";
+            }
+            if (tileYield[4] > 0)
+            {
+                temp += " " + tileYield[4] + " s";
+            }
+            return temp;
+        }
+        /// <summary>
+        /// Uppdaterar tileYielden utifrån tileType, improvements och spelarens policies
+        /// </summary>
+        public void UpdateTileYield(player Player)
+        {
+            tileYieldZero();
+            tileYield = tileYieldAdd(infoLibrary.getTileTypeYield(tileTypeString));
+            tileYield = tileYieldAdd(Player.TileYieldFromPolicy(tileTypeString));
+        }
+        /// <summary>
+        /// Resettar tileyielden till 0 på alla värden.
+        /// </summary>
+        public void tileYieldZero()
+        {
+            tileYield = new int[5] { 0, 0, 0, 0, 0 };
+        }
+        /// <summary>
+        /// Adderar tileYielden med en annan array av storlek 5 parallelt.
+        /// </summary>
+        /// <param name="input1"></param>
+        /// <param name="input2"></param>
+        /// <returns></returns>
+        private int[] tileYieldAdd(int[] input2)
+        {
+            int[] sum = new int[5];
+            for (int i = 0; i < sum.Length; i++)
+            {
+                sum[i] = tileYield[i] + input2[i];
+            }
+            return sum;
+        }
+        /// <summary>
+        /// get + set för colorString
+        /// </summary>
+        public string TileTypeString
+        {
+            get { return tileTypeString; }
             set
             {
                 if (value == "")
                 {
-                    colorString = "noColor";
+                    tileTypeString = "";
                 }
                 else
                 {
-                    colorString = value;
+                    tileTypeString = value;
                 }
             }
         }
@@ -163,7 +244,7 @@ namespace dummyLibrary
         {
             double xCoord = r * 1 / 2 * (2 * x + y - z);
             double zCoord = r * Math.Sqrt(3) / 2 * (y + z);
-            return new double[3] { xCoord,0, zCoord };
+            return new double[3] { xCoord, 0, zCoord };
         }
         /// <summary>
         /// returnerar tilens xz coordinater i spelet i form av 3 doublar, x, y, z
@@ -183,7 +264,7 @@ namespace dummyLibrary
         /// returnerar tilens 3 libraryCoordinates, x, y, z
         /// </summary>
         /// <returns></returns>
-        public int[]XYZLibraryCoordinates()
+        public int[] XYZLibraryCoordinates()
         {
             return new int[3] { x, y, z };
         }
@@ -194,7 +275,7 @@ namespace dummyLibrary
         /// <returns></returns>
         public int[] XYZLibraryCoordinatesDownRight()
         {
-            return new int[3] { x + 1, y, z - 1};
+            return new int[3] { x + 1, y, z - 1 };
         }
         /// <summary>
         /// returnerar tilens 3 libraryCoodinates, x, y, z
@@ -203,7 +284,18 @@ namespace dummyLibrary
         /// <returns></returns>
         public int[] XYZLibraryCoordinatesUpRight()
         {
-            return new int[3] { x + 1, y + 1, z};
+            return new int[3] { x + 1, y + 1, z };
+        }
+        public bool unitExists(int unitID)
+        {
+            for (int i = 0; i < unitIDs.Count; i++)
+            {
+                if (unitIDs[i] == unitID)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
