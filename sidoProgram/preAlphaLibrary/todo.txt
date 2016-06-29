@@ -1,0 +1,15 @@
+
+	sistajaggjorde?:
+
+	infoLib skall innehålla saker som, string infolib.policies.OceanPeople så att man hittar rätt policy direkt
+		samma gäller för saker såsom building effects
+	sammanfoga effects med policy?
+	en (spell)list
+
+	klasser i hierarki
+		t1:
+			building
+			tile
+			unit
+		t2:
+			city
