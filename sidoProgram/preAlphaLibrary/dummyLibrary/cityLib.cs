@@ -9,7 +9,7 @@ namespace preAlphaLibrary
     class cityLib
     {
         public List<city> cityList = new List<city>();
-
+        
         public cityLib(tileLib tileLibrary)
         {
             cityList.Add(new city("maxTown", "max", tileLibrary, 0));

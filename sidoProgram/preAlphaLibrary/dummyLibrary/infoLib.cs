@@ -66,11 +66,17 @@ namespace preAlphaLibrary
         { return new building("Walls", "Ger din stad 100 mer hp", "wallEffect", 50, 200); }
         public building Barracks()
         { return new building("Barracks", "Ger dig 1 mer unitcap", "1unitcap+", 70, 70); }
+        public building Scout()
+        { return new building("Scout", "Ger dig 1 scout", "", 20, 30); }
+        public building Warrior()
+        { return new building("Warrior", "Ger dig 1 warrior", "+", 50, 70); }
 
         // Units
         public unit Scout(string Owner, int unitID)
         { return new unit("Scout",Owner, 30, 5, 3, 1, unitID); }
         public unit Warrior(string Owner, int unitID)
         { return new unit("Warrior",Owner, 100, 50, 2, 1, unitID); }
+        public unit Hero(string Owner, int unitID)
+        { return new unit("Hero", Owner, 200, 50, 2, 1, unitID); }
     }
 }

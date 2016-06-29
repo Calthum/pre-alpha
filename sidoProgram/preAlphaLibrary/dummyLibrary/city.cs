@@ -44,12 +44,25 @@ namespace preAlphaLibrary
                 unassignedPeople += 1;
             }
         }
-        public void checkForFinishedBuilding()
+        public void checkForFinishedBuilding(unitLib uLib, tileLib tLib)
         {
             if (productionProgress >= buildingInProgress.prodCost)
             {
-                buildingList.Add(buildingInProgress);
-                buildingInProgress = null;
+                if (buildingInProgress.name == "Scout")
+                {
+                    uLib.CreateNewUnit(infoLibrary.Scout("max", 0), tLib.FindIndex_AtTile(tLib.FindTile_AtCityID(cityID)), tLib);
+                    buildingInProgress = null;
+                }
+                else if (buildingInProgress.name == "Warrior")
+                {
+                    uLib.CreateNewUnit(infoLibrary.Warrior("max", 0), tLib.FindIndex_AtTile(tLib.FindTile_AtCityID(cityID)), tLib);
+                    buildingInProgress = null;
+                }
+                else
+                {
+                    buildingList.Add(buildingInProgress);
+                    buildingInProgress = null;
+                }
             }
         }
         public void UpdateWholeCity()

@@ -77,8 +77,6 @@ namespace preAlphaLibrary
 
             // En stad och två enheter läggs ut
             tempTileList[54].CityID = 0;
-            tempTileList[104].addUnit(0);
-            tempTileList[87].addUnit(1);
 
             return tempTileList;
         }
@@ -88,6 +86,22 @@ namespace preAlphaLibrary
         public List<tile> TileList
         {
             get { return tileList; }
+        }
+        /// <summary>
+        /// returnerar den index som den givna tilen existerar i
+        /// </summary>
+        /// <param name="inTile"></param>
+        /// <returns></returns>
+        public int FindIndex_AtTile(tile inTile)
+        {
+            for (int i = 0; i < tileList.Count; i++)
+            {
+                if (tileList[i] == inTile)
+                {
+                    return i;
+                }
+            }
+            return 0;
         }
         /// <summary>
         /// returnerar den tile vid givet index

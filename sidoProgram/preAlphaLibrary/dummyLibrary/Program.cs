@@ -8,6 +8,12 @@ namespace preAlphaLibrary
 {
     class Program
     {
+        infoLib infoLibrary;
+        tileLib tileLibrary;
+        playerLib playerLibrary;
+        cityLib cityLibrary;
+        unitLib unitLibrary;
+
         static void Main(string[] args)
         {
             Console.SetWindowSize(Console.LargestWindowWidth - 60, Console.LargestWindowHeight - 3);
@@ -15,6 +21,15 @@ namespace preAlphaLibrary
             tileLib tileLibrary = new tileLib();
             DrawTileList(tileLibrary.TileList);
             Console.ReadKey();
+        }
+
+        public void initializeAll()
+        {
+            infoLibrary = new infoLib();
+            tileLibrary = new tileLib();
+            playerLibrary = new playerLib();
+            cityLibrary = new cityLib(tileLibrary);
+            unitLibrary = new unitLib(tileLibrary);
         }
 
         public static void DrawTileList(List<tile> tileList)

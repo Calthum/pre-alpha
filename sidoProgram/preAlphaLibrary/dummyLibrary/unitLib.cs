@@ -11,10 +11,22 @@ namespace preAlphaLibrary
         public List<unit> unitList = new List<unit>();
         private infoLib infoLibrary;
 
-        public unitLib()
+        public unitLib(tileLib tileLibrary)
         {
-            unitList.Add(infoLibrary.Scout("max", 0));
-            unitList.Add(infoLibrary.Warrior("max", 0));
+            CreateNewUnit(infoLibrary.Scout("max", 0), 104, tileLibrary);
+            CreateNewUnit(infoLibrary.Warrior("max", 0), 87, tileLibrary);
+            CreateNewUnit(infoLibrary.Warrior("barb", 0), 125, tileLibrary);
+
+            CreateNewUnit(infoLibrary.Hero("max", 0), 53, tileLibrary);
+            CreateNewUnit(infoLibrary.Hero("barb", 0), 126, tileLibrary);
+
+            //unitList.Add(infoLibrary.Scout("max", 0));
+            //unitList.Add(infoLibrary.Warrior("max", 0));
+            //unitList.Add(infoLibrary.Warrior("max", 0));
+
+            // tempTileList[104].addUnit(0);
+            // tempTileList[87].addUnit(1);
+            // tempTileList[125].addUnit(2);
         }
 
         public int FindIndexOfUnit_AtUnitID(int unitID)
