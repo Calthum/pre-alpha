@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-I win
-=======
-hej maxasd
->>>>>>> origin/master
+GET FUKT SON
