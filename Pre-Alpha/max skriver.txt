@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-I win
-=======
-hej maxasd
->>>>>>> origin/master
+max säger hej igen
