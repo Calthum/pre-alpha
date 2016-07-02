@@ -62,3 +62,36 @@
 	tile
 		en tile i spelet, kommer hanteras i tileLibrary
 		kommer innehålla saker som, unitIDs, tileYield
+
+	player
+		en spelare i spelet, kommer hanteras i playerLibrary
+		kommer innehåll saker som culture guld och science
+		även quests och policies
+
+	city
+		en stad i spelet, kommer hanteras i cityLibrary
+		innehåller saker som total tileYield, vilka byggnader
+		och vad som byggs just nu
+
+	unit
+		en unit i spelet, kommer hanteras i unitLibrary
+		innehåller saker som cooldowns och hp och atk
+
+	---------------------------------
+	 T4-KLASSER
+	Dessa är basic klasser som sköter
+	lite logik mellan andra klasser
+	---------------------------------
+
+	tileYield
+		kommer användas främst för att göra addering mellan andra tileYields
+		är en array av 5 bytes
+
+	building
+		kommer innehålla saker som namn, kostnad, och effekt
+
+	policy
+		kommer innehålla saker som namn, kostnad och effekt
+
+	tech
+		innehålla saker som namn kostnad och effekt
