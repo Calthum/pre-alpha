@@ -25,19 +25,20 @@ public class spawnTiles : MonoBehaviour {
             float yPos = (float)tilePosition[1];
             float zPos = (float)tilePosition[2];
             clonePos = new Vector3(xPos, yPos, zPos);
-            GameObject clone = Instantiate(instantiateThis, clonePos, Quaternion.Euler(-90,30,0)) as GameObject;
+            GameObject tileClone = Instantiate(instantiateThis, clonePos, Quaternion.Euler(-90,30,0)) as GameObject;
+            tileClone.GetComponent<tileInfo>().Initialize(tilesIndex);
             #endregion
             #region GetColor
             switch (ManagerDummy.Instance.GetColor(tilesIndex))
             {
                 case "Green":
-                    clone.GetComponent<Renderer>().material.color = Color.green;
+                    tileClone.GetComponent<Renderer>().material.color = Color.green;
                     break;
                 case "Beige":
-                    clone.GetComponent<Renderer>().material.color = Color.yellow;
+                    tileClone.GetComponent<Renderer>().material.color = Color.yellow;
                     break;
                 case "Blue":
-                    clone.GetComponent<Renderer>().material.color = Color.blue;
+                    tileClone.GetComponent<Renderer>().material.color = Color.blue;
                     break;
                 default:
                     break;
@@ -57,7 +58,10 @@ public class spawnTiles : MonoBehaviour {
             {
                 Vector3 unitPos = clonePos;
                 unitPos.y += 1;
-                GameObject unitClone = Instantiate(instantiateUnit, unitPos, Quaternion.Euler(-90,0,0)) as GameObject;
+                instantiateUnit.GetComponent<unitInfo>().unitID = unitsOnTile[0];
+                GameObject unitClone = Instantiate(instantiateUnit, unitPos, Quaternion.Euler(-90, 0, 0)) as GameObject;
+                unitClone.GetComponent<unitInfo>().Initialize(unitsOnTile[0], tilesIndex);
+                //unitClone.GetComponent<unitInfo>().unitID = unitsOnTile[0];
             }
             #endregion
         }

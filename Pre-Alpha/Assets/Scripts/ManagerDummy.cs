@@ -48,5 +48,34 @@ public class ManagerDummy : Singleton<ManagerDummy>
 
         return tilesLibrary.UnitList_AtIndex(index);
     }
+
+    public int[] GetUnitHealth(int id)
+    {
+        int[] hpArray = new int[2];
+        hpArray[0] = unitLibrary.unitList[UnitIndex(id)].MaxHp;
+        hpArray[1] = unitLibrary.unitList[UnitIndex(id)].CurrentHp;
+        return hpArray;
+    }
+    public int[] GetUnitMovement(int id)
+    {
+        int[] movementArray = new int[2];
+        movementArray[0] = unitLibrary.unitList[UnitIndex(id)].MaxMovePoints;
+        movementArray[1] = unitLibrary.unitList[UnitIndex(id)].CurrentMovePoints;
+        return movementArray;
+    }
+    public int[] GetUnitAtk(int id)
+    {
+        int[] attackArray = new int[4];
+        attackArray[0] = unitLibrary.unitList[UnitIndex(id)].MaxAtk;
+        attackArray[1] = unitLibrary.unitList[UnitIndex(id)].CurrentAtk;
+        attackArray[2] = unitLibrary.unitList[UnitIndex(id)].MaxCanAtk;
+        attackArray[3] = unitLibrary.unitList[UnitIndex(id)].CurrentCanAtk;
+        return attackArray;
+    }
+    private int UnitIndex(int id)
+    {
+       return unitLibrary.FindIndexOfUnit_AtUnitID(id);
+    }
+
     
 }
