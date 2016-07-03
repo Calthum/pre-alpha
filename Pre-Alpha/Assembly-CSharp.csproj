@@ -38,16 +38,17 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>D:/Program/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>D:/Program/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\ManagerDummy.cs" />
      <Compile Include="Assets\Scripts\MoveCamera.cs" />
      <Compile Include="Assets\Scripts\Program.cs" />
+     <Compile Include="Assets\Scripts\SelectedUnit.cs" />
      <Compile Include="Assets\Scripts\Singleton.cs" />
      <Compile Include="Assets\Scripts\building.cs" />
      <Compile Include="Assets\Scripts\city.cs" />
@@ -57,14 +58,16 @@
      <Compile Include="Assets\Scripts\playerLib.cs" />
      <Compile Include="Assets\Scripts\spawnTiles.cs" />
      <Compile Include="Assets\Scripts\tile.cs" />
+     <Compile Include="Assets\Scripts\tileInfo.cs" />
      <Compile Include="Assets\Scripts\tileLib.cs" />
      <Compile Include="Assets\Scripts\unit.cs" />
+     <Compile Include="Assets\Scripts\unitInfo.cs" />
      <Compile Include="Assets\Scripts\unitLib.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/Program/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>D:/Program/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
