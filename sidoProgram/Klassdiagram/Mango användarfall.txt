@@ -1,0 +1,42 @@
+
+	Mango vill:
+
+		Rita en tile:
+		Då kollar han genom tileLibrary, och frågar efter den information han behöver om tilen, såsom improvements och terrain
+
+		Rita en unit:
+		Då kollar han genom unitLibrary, och frågar efter relevant info
+
+		Veta vad en policy gör:
+		Då kollar han i infoLibrary, och frågar efter den relevanta policyn
+
+		Lägga till en policy till en spelare:
+		Då säger han att han vill lägga till policyn till den relevanta spelaren i playerLibrary, och därigenom kommer den
+		checka om det går att lägga till den policyn just nu, har spelaren nog mkt culture, har spelaren låst upp rätt policies
+		innan osv
+
+		Säga åt en worker att imrova en farm på en tile:
+		Då säger han till unitLibrary vilken worker han vill selecta, och sedan säger han åt denne att worka en farm troligtvis
+		då genom att ha klickat på en knapp, då påbörjas en nedräkning inom den workern, och när denne är klar så kommer den
+		lägga till en improvement på rätt tile i tileLibrary
+
+		Vill aktivera en det första objectivet:
+		Då klickar han på objectivet och säger activate, om ingen unit står på plats händer såklart ingenting, annars så börjar
+		en countdown som räknar ned till den har blivit activated, när den är activated måste spelare deactivate den innan den
+		aktiverande spelaren vinner spelet (objectivet kommer vara en unit mao, som kan targetas av alla)
+
+		Vill founda en ny stad:
+		Då lär han ha en unit som heter settler med abilityn found city, denna ability dödar settlern men skapar en stad där 			denne stod. Staden som skapas får med sig information om settlern, såsom var den stod och vilken spelare som ägde denna
+		detta gör att staden kan skapas genom att endast använda en ability
+
+		Slåss med en enhet mot en annan enhet:
+		Då selectar han den enhet han vill slåss med, sedan selectar han den han vill slåss emot, då körs en battle metod som
+		tar två listor av unitIDs(de som fanns på attakerade tile och försvarade tile), och sedan får dessa unitIDs att slåss 			enligt battle reglerna
+
+		Casta en units ranged spell:
+		Då klickar han på spellen och, då blir uniten medveten om att den snart kommer få en cast command, för den senaste 			använda abilityn, och magnus skickar detta cast command genom att högerklicka på en annan tile sedan
+
+		Cycla till nästa enhet/stad/policy som behöver uppmärksamhet:
+		Då frågar han playerLibrary efter spelaren som spelar, och denna spelare kommer ha en lista över indexar, som behöver 			uppmärksamhet, dessa kan vara städer och eller units. När han cyclat genom denna lista, så finns det en en bool som 			frågar om han har nog mkt culture för att ta en ny policy.
+
+		

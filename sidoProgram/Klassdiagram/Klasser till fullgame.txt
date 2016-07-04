@@ -47,11 +47,17 @@
 	Låter dig komma åt saker som
 	premade units och premade
 	quests eller UI element
+	Denna klass kommer ärva med
+	sig alla de andra klasserna
 	----------------------------
 
 	informationLibrary
 		innehåller premade units, buildings, policies osv
 		innehåller metoder som bestämmer vilka bonusar en spelare får beroende på vilka policies denne har
+		innehåller även abilities, och deras relevanta information
+
+	mathLibrary
+		innehåller metoder som returnerar listor på libraryCoordinates på tiles som är på radie ett tex av en annan tile
 
 	---------------------------------
 	 T3-KLASSER
@@ -62,11 +68,13 @@
 	tile
 		en tile i spelet, kommer hanteras i tileLibrary
 		kommer innehålla saker som, unitIDs, tileYield
+		och även en lista över abilities denne kan använda
 
 	player
 		en spelare i spelet, kommer hanteras i playerLibrary
 		kommer innehåll saker som culture guld och science
-		även quests och policies
+		även quests och policies och fantasy web i listor
+		innehålla en metod som hanterar focus cycling
 
 	city
 		en stad i spelet, kommer hanteras i cityLibrary
@@ -76,6 +84,11 @@
 	unit
 		en unit i spelet, kommer hanteras i unitLibrary
 		innehåller saker som cooldowns och hp och atk
+		vad för tiles en unit kan gå på
+		skepp kommer ha en lista med cargo, samt ability som gör
+		att de plockar upp units och släpper units
+		innehålla en allmänn counter, för diverse saker units gör
+		såsom heroes som samlar på sig bonusar
 
 	---------------------------------
 	 T4-KLASSER
@@ -95,3 +108,6 @@
 
 	tech
 		innehålla saker som namn kostnad och effekt
+
+	ability
+		innheåller saker som namn, effekt, och cooldown

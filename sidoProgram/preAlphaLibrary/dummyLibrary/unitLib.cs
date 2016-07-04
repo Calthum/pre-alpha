@@ -50,7 +50,7 @@ namespace preAlphaLibrary
         /// <param name="UnitType"></param>
         public void CreateNewUnit(unit UnitType, int index, tileLib tileLibray)
         {
-            UnitType.unitID = unitList.Count;
+            UnitType.unitID = lastUnitID();
             unitList.Add(UnitType);
             tileLibray.TileList[index].addUnit(UnitType.unitID);
         }
@@ -79,6 +79,11 @@ namespace preAlphaLibrary
             {
                 unitList[i].newTurn();
             }
+        }
+
+        public int lastUnitID()
+        {
+            return unitList[unitList.Count - 1].unitID + 1;
         }
     }
 }
