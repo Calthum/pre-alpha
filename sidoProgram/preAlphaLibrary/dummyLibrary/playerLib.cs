@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace preAlphaLibrary
 {
     class playerLib
     {
-        public List<player> playerList;
+        public List<player> playerList = new List<player>();
 
         /// <summary>
         /// Skapar ett nytt library med en default spelare i sig

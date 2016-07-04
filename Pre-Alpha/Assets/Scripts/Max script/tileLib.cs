@@ -236,7 +236,6 @@ namespace preAlphaLibrary
             return new tile();
         }    
         /// <summary>
-        /// ge två ettor till xyz, bestäm positivt eller inte, och säg vilken unit som skall göras med
         /// </summary>
         /// <param name="tileIndex"></param>
         /// <param name="unitID"></param>
@@ -244,7 +243,7 @@ namespace preAlphaLibrary
         /// <param name="XYZ"></param>
         public void MoveUnit(int unitID, tile tileAt, tile tileTo, unitLib uLib)
         {
-            if (tileAt.unitExists(unitID) && Tile_IsAdjacentTo(tileAt, tileTo))
+            if (tileAt.unitExists(unitID) && Tile_IsAdjacentTo(tileAt, tileTo) && uLib.unitList[uLib.FindIndexOfUnit_AtUnitID(unitID)].MaxMovePoints > 0)
             {
                 tileAt.removeUnit(unitID);
                 tileTo.addUnit(unitID);
