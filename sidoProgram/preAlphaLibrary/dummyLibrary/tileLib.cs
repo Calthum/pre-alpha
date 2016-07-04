@@ -77,6 +77,18 @@ namespace preAlphaLibrary
 
             // En stad och två enheter läggs ut
             tempTileList[54].CityID = 0;
+
+            tempTileList[84].TileTypeString = "Hill";
+            tempTileList[85].TileTypeString = "Hill";
+            tempTileList[86].TileTypeString = "Hill";
+            tempTileList[76].TileTypeString = "Hill";
+            tempTileList[75].TileTypeString = "Hill";
+
+            tempTileList[94].TileTypeString = "Hill";
+            tempTileList[95].TileTypeString = "Hill";
+            tempTileList[96].TileTypeString = "Hill";
+            tempTileList[104].TileTypeString = "Hill";
+            tempTileList[114].TileTypeString = "Hill";
             //tempTileList[104].addUnit(0);
             //tempTileList[87].addUnit(1);
             //tempTileList[125].addUnit(2);
