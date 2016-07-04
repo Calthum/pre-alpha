@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace preAlphaLibrary
 {
     class unitLib
     {
         public List<unit> unitList = new List<unit>();
-        private infoLib infoLibrary;
+        private infoLib infoLibrary = new infoLib();
 
         public unitLib(tileLib tileLibrary)
         {

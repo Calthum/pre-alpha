@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace preAlphaLibrary
 {
@@ -77,6 +77,9 @@ namespace preAlphaLibrary
 
             // En stad och två enheter läggs ut
             tempTileList[54].CityID = 0;
+            //tempTileList[104].addUnit(0);
+            //tempTileList[87].addUnit(1);
+            //tempTileList[125].addUnit(2);
 
             return tempTileList;
         }
@@ -233,7 +236,6 @@ namespace preAlphaLibrary
             return new tile();
         }
         /// <summary>
-        /// ge två ettor till xyz, bestäm positivt eller inte, och säg vilken unit som skall göras med
         /// </summary>
         /// <param name="tileIndex"></param>
         /// <param name="unitID"></param>
@@ -241,7 +243,7 @@ namespace preAlphaLibrary
         /// <param name="XYZ"></param>
         public void MoveUnit(int unitID, tile tileAt, tile tileTo, unitLib uLib)
         {
-            if (tileAt.unitExists(unitID) && Tile_IsAdjacentTo(tileAt, tileTo))
+            if (tileAt.unitExists(unitID) && Tile_IsAdjacentTo(tileAt, tileTo) && uLib.unitList[uLib.FindIndexOfUnit_AtUnitID(unitID)].MaxMovePoints > 0)
             {
                 tileAt.removeUnit(unitID);
                 tileTo.addUnit(unitID);

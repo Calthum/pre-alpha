@@ -1,1 +1,2 @@
 D:\Git\pre-alpha\sidoProgram\preAlphaLibrary\dummyLibrary\bin\Debug\preAlphaLibrary.exe.config
+D:\Git\pre-alpha\sidoProgram\preAlphaLibrary\dummyLibrary\obj\Debug\preAlphaLibrary.csprojResolveAssemblyReference.cache
