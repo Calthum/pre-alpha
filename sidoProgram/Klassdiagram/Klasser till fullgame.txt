@@ -1,0 +1,113 @@
+
+	-----------------------------------
+	 T0-KLASSER
+	Hanterar mycket saker som är "meta"
+	-----------------------------------
+
+	MAIN
+		kommer hantera initiering av nya spel, såsom att skapa världar, lägga till spelare osv
+		det är även genom denna som man kommer åt det spelet man har skapat
+		kommer hantera att spara och ladda upp nya spel
+		hanterar next turn
+		hanterar kanske online-sync?
+
+	------------------------------------
+	 T1-KLASSER
+	Dessa är de mest centrala klasserna,
+	som skapas först, för att sedan 
+	kunna nedärvas till T2-KLASSER
+	------------------------------------
+
+	tileLibrary
+		låter dig komma åt alla tiles på enkla sätt
+
+	playerLibrary
+		låter dig komma åt alla players på enkla sätt
+
+	---------------------------------
+	 T2-KLASSER
+	Dessa nedärver både playerLibrary
+	och tileLibrary vid skapning
+	---------------------------------
+
+	cityLibrary
+		låter dig komma åt städer på enkla sätt
+		innehåller metoder som räknar ihop alla gains från städer och summerar
+
+	unitLibrary
+		låter dig komma åt enheter på enkla sätt
+		låter dig genomföra slagsmål mellan enheter eller grupper av enheter
+
+	objectiveControl
+		hanterar de stora objectives, som låter folk vinna spelet
+
+	
+	----------------------------
+	 "Statiska"-KLASSER
+	Låter dig komma åt saker som
+	premade units och premade
+	quests eller UI element
+	Denna klass kommer ärva med
+	sig alla de andra klasserna
+	----------------------------
+
+	informationLibrary
+		innehåller premade units, buildings, policies osv
+		innehåller metoder som bestämmer vilka bonusar en spelare får beroende på vilka policies denne har
+		innehåller även abilities, och deras relevanta information
+
+	mathLibrary
+		innehåller metoder som returnerar listor på libraryCoordinates på tiles som är på radie ett tex av en annan tile
+
+	---------------------------------
+	 T3-KLASSER
+	Dessa är "model" klasser som
+	bygger upp alla saker i libraries
+	---------------------------------
+
+	tile
+		en tile i spelet, kommer hanteras i tileLibrary
+		kommer innehålla saker som, unitIDs, tileYield
+		och även en lista över abilities denne kan använda
+
+	player
+		en spelare i spelet, kommer hanteras i playerLibrary
+		kommer innehåll saker som culture guld och science
+		även quests och policies och fantasy web i listor
+		innehålla en metod som hanterar focus cycling
+
+	city
+		en stad i spelet, kommer hanteras i cityLibrary
+		innehåller saker som total tileYield, vilka byggnader
+		och vad som byggs just nu
+
+	unit
+		en unit i spelet, kommer hanteras i unitLibrary
+		innehåller saker som cooldowns och hp och atk
+		vad för tiles en unit kan gå på
+		skepp kommer ha en lista med cargo, samt ability som gör
+		att de plockar upp units och släpper units
+		innehålla en allmänn counter, för diverse saker units gör
+		såsom heroes som samlar på sig bonusar
+
+	---------------------------------
+	 T4-KLASSER
+	Dessa är basic klasser som sköter
+	lite logik mellan andra klasser
+	---------------------------------
+
+	tileYield
+		kommer användas främst för att göra addering mellan andra tileYields
+		är en array av 5 bytes
+
+	building
+		kommer innehålla saker som namn, kostnad, och effekt
+
+	policy
+		kommer innehålla saker som namn, kostnad och effekt
+
+	tech
+		innehålla saker som namn kostnad och effekt
+
+	ability
+		innheåller saker som namn, effekt, och cooldown
