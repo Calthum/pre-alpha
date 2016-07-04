@@ -6,7 +6,7 @@ using System.Text;
 
 namespace preAlphaLibrary
 {
-    class tile
+    public class tile
     {
         // Datamedlemmar
         /// <summary>

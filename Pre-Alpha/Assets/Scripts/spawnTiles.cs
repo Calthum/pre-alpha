@@ -61,7 +61,7 @@ public class spawnTiles : MonoBehaviour {
                 instantiateUnit.GetComponent<unitInfo>().unitID = unitsOnTile[0];
                 GameObject unitClone = Instantiate(instantiateUnit, unitPos, Quaternion.Euler(-90, 0, 0)) as GameObject;
                 unitClone.GetComponent<unitInfo>().Initialize(unitsOnTile[0], tilesIndex);
-                //unitClone.GetComponent<unitInfo>().unitID = unitsOnTile[0];
+                
             }
             #endregion
         }

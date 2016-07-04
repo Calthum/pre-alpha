@@ -6,7 +6,7 @@ using System.Text;
 
 namespace preAlphaLibrary
 {
-    class player
+    public class player
     {
         public int gold = 0;
         public int culture = 0;

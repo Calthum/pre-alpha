@@ -12,6 +12,8 @@ public class ManagerDummy : Singleton<ManagerDummy>
     private playerLib playerLibrary;
     private cityLib cityLibrary;
     private unitLib unitLibrary;
+    private tile tile;
+    
 
     public int Count()
     {
@@ -25,6 +27,7 @@ public class ManagerDummy : Singleton<ManagerDummy>
         playerLibrary = new playerLib();
         cityLibrary = new cityLib(tilesLibrary);
         unitLibrary = new unitLib(tilesLibrary);
+        tile = new tile();
     }
 
     public double[] GetPosition(int index)
@@ -77,5 +80,31 @@ public class ManagerDummy : Singleton<ManagerDummy>
        return unitLibrary.FindIndexOfUnit_AtUnitID(id);
     }
 
-    
+    public void MoveUnit(int unitID, tile tileAT, tile tileTo)
+    {
+        tilesLibrary.MoveUnit(unitID, tileAT, tileTo, unitLibrary);
+    }
+
+    public tile GetTileByIndex(int index)
+    {
+
+        return tilesLibrary.Tile_AtIndex(index);
+    }
+
+    public tile GetTileByPosition(int[]XYZ_coordinates)
+    {
+        return tilesLibrary.FindTile_AtLibraryCoordinates(XYZ_coordinates);
+    }
+
+    public double[] search(int unitID)
+    {
+        for (int i = 0; i < tilesLibrary.Count; i++)
+        {
+            if (tilesLibrary.Tile_AtIndex(i).UnitList[0] == unitID)
+            {
+                return tilesLibrary.WorldCoordinates_AtIndex(i);
+            }
+        }
+        return new tile().XYZUnityCoordinates();
+    }
 }

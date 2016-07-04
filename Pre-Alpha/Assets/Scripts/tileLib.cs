@@ -234,7 +234,7 @@ namespace preAlphaLibrary
                 }
             }
             return new tile();
-        }
+        }    
         /// <summary>
         /// ge två ettor till xyz, bestäm positivt eller inte, och säg vilken unit som skall göras med
         /// </summary>

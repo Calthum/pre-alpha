@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class unitInfo : MonoBehaviour {
     public int unitID;
@@ -24,17 +25,7 @@ public class unitInfo : MonoBehaviour {
     {
         unitID = inputID;
         tileIndex = indexInput;
-        int[] healthInfo = ManagerDummy.Instance.GetUnitHealth(gameObject.GetComponent<unitInfo>().unitID);
-        int[] attackInfo = ManagerDummy.Instance.GetUnitAtk(gameObject.GetComponent<unitInfo>().unitID);
-        int[] movementInfo = ManagerDummy.Instance.GetUnitMovement(gameObject.GetComponent<unitInfo>().unitID);
-        maxHealth = healthInfo[0];
-        currentHealth = healthInfo[1];
-        maxAtk = attackInfo[0];
-        currentAtk = attackInfo[1];
-        maxCanAtk = attackInfo[2];
-        currentCanAtk = attackInfo[3];
-        maxMovement = movementInfo[0];
-        currentMovement = movementInfo[1];
+        UpdateUnitInfo();
 
 
     }
@@ -51,6 +42,34 @@ public class unitInfo : MonoBehaviour {
 
         selectedUnit.GetComponent<SelectedUnit>().SelectNewUnit(gameObject);
         }
+    }
+    public void UpdateUnitInfo()
+    {
+        int[] healthInfo = ManagerDummy.Instance.GetUnitHealth(gameObject.GetComponent<unitInfo>().unitID);
+        int[] attackInfo = ManagerDummy.Instance.GetUnitAtk(gameObject.GetComponent<unitInfo>().unitID);
+        int[] movementInfo = ManagerDummy.Instance.GetUnitMovement(gameObject.GetComponent<unitInfo>().unitID);
+        maxHealth = healthInfo[0];
+        currentHealth = healthInfo[1];
+        maxAtk = attackInfo[0];
+        currentAtk = attackInfo[1];
+        maxCanAtk = attackInfo[2];
+        currentCanAtk = attackInfo[3];
+        maxMovement = movementInfo[0];
+        currentMovement = movementInfo[1];
+        
+        tileIndex = ManagerDummy.Instance.GetTileByPosition(ManagerDummy.Instance.search(gameObject.GetComponent<unitInfo>().unitID));
+
+    }
+    public void UpdateUnitPosition(GameObject unit)
+    {
+        unitInfo unitinfo = unit.GetComponent<unitInfo>();
+        double[] newXYZposition = new double[3];
+        newXYZposition = ManagerDummy.Instance.search(unitinfo.unitID);
+        Vector3 newXYZvector = new Vector3((float)newXYZposition[0], (float)newXYZposition[1], (float)newXYZposition[2]);
+        unit.transform.position = newXYZvector;
+        int yolo = 32;
+        
+        
     }
 
 }
