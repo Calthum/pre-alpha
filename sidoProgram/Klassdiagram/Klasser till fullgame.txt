@@ -69,7 +69,6 @@
 	tile
 		en tile i spelet, kommer hanteras i tileLibrary
 		kommer innehålla saker som, unitIDs, tileYield
-		och även en lista över abilities denne kan använda
 
 	player
 		en spelare i spelet, kommer hanteras i playerLibrary
@@ -90,6 +89,7 @@
 		att de plockar upp units och släpper units
 		innehålla en allmänn counter, för diverse saker units gör
 		såsom heroes som samlar på sig bonusar
+		och även en lista över abilities denne kan använda
 
 	---------------------------------
 	 T4-KLASSER
