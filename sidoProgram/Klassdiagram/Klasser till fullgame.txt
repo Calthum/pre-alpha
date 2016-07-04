@@ -55,6 +55,7 @@
 		innehåller premade units, buildings, policies osv
 		innehåller metoder som bestämmer vilka bonusar en spelare får beroende på vilka policies denne har
 		innehåller även abilities, och deras relevanta information
+		premade quests
 
 	mathLibrary
 		innehåller metoder som returnerar listor på libraryCoordinates på tiles som är på radie ett tex av en annan tile
@@ -111,3 +112,6 @@
 
 	ability
 		innheåller saker som namn, effekt, och cooldown
+
+	quest
+		vad man behöver uppfylla samt vad man får
