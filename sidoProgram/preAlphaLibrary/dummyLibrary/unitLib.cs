@@ -50,6 +50,11 @@ namespace preAlphaLibrary
         {
             UnitType.unitID = unitList.Count;
             unitList.Add(UnitType);
+            if (UnitType.unitID == 3)
+            {
+                int x;
+                x = 1;
+            }
             tileLibray.TileList[index].addUnit(UnitType.unitID);
         }
 

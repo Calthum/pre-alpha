@@ -1,0 +1,30 @@
+
+
+
+	## tileLibrary ##
+
+	låter dig komma åt alla tiles på enkla sätt
+
+
+	## DATAMEDLEMMAR ##
+
+	public List<tile> tileList;
+
+	## KONTRUKTORER ##
+
+	public tileLibrary()
+	// initerar ett tileLibrary med en default värld som inte är legit
+
+	public tileLibrary(worldSettings WS)
+	// initerar en värld utifrån givna settings
+
+	## METODER ##
+
+	// diverse find metoder
+	// hitta tiles utifrån olika predikat
+
+	// inga överflödiga find metoder
+
+	// moveUnit flyttas till unitlibrary
+
+	// tile_isAdjacent flyttas till mathlibrary

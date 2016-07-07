@@ -1,9 +1,0 @@
-
-	## playerLibrary ##
-
-	låter dig komma åt alla players på enkla sätt
-
-
-	## DATAMEDLEMMAR ##
-
-	## METODER ##

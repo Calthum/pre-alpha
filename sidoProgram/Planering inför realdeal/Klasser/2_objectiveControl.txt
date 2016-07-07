@@ -1,0 +1,20 @@
+
+
+
+	## objectiveControl ##
+
+	hanterar de stora objectives, som låter folk vinna spelet
+
+	## DATAMEDLEMMAR ##
+
+	// läggas till
+
+
+	## KONTRUKTORER ##
+
+	// läggas till
+
+
+	## METODER ##
+
+	// läggas till

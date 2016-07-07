@@ -1,0 +1,26 @@
+
+
+
+	## playerLibrary ##
+
+	låter dig komma åt alla players på enkla sätt
+
+
+	## DATAMEDLEMMAR ##
+
+	public List<player> playerList;
+
+
+	## KONSTRUKTORER ##
+
+	public playerLibrary()
+	// Skapar en playerList som är tom
+
+	public playerLibrary(List<playerPreInfo> playerPreInfoList)
+	// Skapar en playerList utifrån enkel info given av en lista, såsom spelarnamn, och raser mmr
+
+	## METODER ##
+
+	// diverse find metoder
+
+	// newturn sköts i citylibrary

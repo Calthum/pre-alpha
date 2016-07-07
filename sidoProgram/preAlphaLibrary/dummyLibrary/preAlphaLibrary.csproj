@@ -45,6 +45,7 @@
     <Compile Include="city.cs" />
     <Compile Include="cityLib.cs" />
     <Compile Include="infoLib.cs" />
+    <Compile Include="Main.cs" />
     <Compile Include="player.cs" />
     <Compile Include="playerLib.cs" />
     <Compile Include="Program.cs" />

@@ -1,0 +1,28 @@
+
+
+
+	## unitLibrary ##
+
+	låter dig komma åt enheter på enkla sätt
+	låter dig genomföra slagsmål mellan enheter eller grupper av enheter
+
+
+	## DATAMEDLEMMAR ##
+
+	public List<unit> unitList;
+
+
+	## KONTRUKTORER ##
+
+	public unitLibrary(playerLibrary pLib, tileLibrary tLib)
+	// initerar ett unitlibrary som inte är legit, vissa enheter är preexisterande
+
+	public unitLibrary(playerLibrary pLib, tileLibrary tLib, ngt mer när man gör det på riktigt)
+	// initerar ett unitlibrary utifrån vad som spelare bör ha
+
+
+	## METODER ##
+
+	// diverse find metoder
+
+	public void createNewUnit(unit UnitType, int index)
