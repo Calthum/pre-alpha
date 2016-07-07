@@ -6,7 +6,7 @@ using System.Text;
 
 namespace preAlphaLibrary
 {
-    class infoLib
+    public class infoLib
     {
         public int[] getTileTypeYield(string tileTypeString)
         {

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace preAlphaLibrary
 {
-    class unit
+    public class unit
     {
         public int MaxHp, CurrentHp;
         public int MaxAtk, CurrentAtk;

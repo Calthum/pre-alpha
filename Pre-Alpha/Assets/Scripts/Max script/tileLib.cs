@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 
 namespace preAlphaLibrary
 {
-    class tileLib
+    public class tileLib
     {
         // Datamedlemmar
         private List<tile> tileList;
@@ -116,7 +117,7 @@ namespace preAlphaLibrary
                     return i;
                 }
             }
-            return 0;
+            return -1;
         }
         /// <summary>
         /// returnerar den tile vid givet index
@@ -259,9 +260,10 @@ namespace preAlphaLibrary
             {
                 tileAt.removeUnit(unitID);
                 tileTo.addUnit(unitID);
-
+                Debug.Log("This did do");
                 uLib.unitList[uLib.FindIndexOfUnit_AtUnitID(unitID)].CurrentMovePoints--;
             }
+            
         }
         public bool Tile_IsAdjacentTo(tile tile1, tile tile2)
         {

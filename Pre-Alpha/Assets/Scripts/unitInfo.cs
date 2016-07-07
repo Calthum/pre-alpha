@@ -13,6 +13,7 @@ public class unitInfo : MonoBehaviour {
     public int currentAtk;
     public int maxMovement;
     public int currentMovement;
+    public int didThisdo;
     GameObject selectedUnit;
     GameObject selectedTile;
 
@@ -56,18 +57,22 @@ public class unitInfo : MonoBehaviour {
         currentCanAtk = attackInfo[3];
         maxMovement = movementInfo[0];
         currentMovement = movementInfo[1];
+
         
-        tileIndex = ManagerDummy.Instance.GetTileByPosition(ManagerDummy.Instance.search(gameObject.GetComponent<unitInfo>().unitID));
+
 
     }
     public void UpdateUnitPosition(GameObject unit)
     {
         unitInfo unitinfo = unit.GetComponent<unitInfo>();
         double[] newXYZposition = new double[3];
-        newXYZposition = ManagerDummy.Instance.search(unitinfo.unitID);
-        Vector3 newXYZvector = new Vector3((float)newXYZposition[0], (float)newXYZposition[1], (float)newXYZposition[2]);
+        newXYZposition = ManagerDummy.Instance.SearchWorldCoords(unitinfo.unitID);
+        Vector3 newXYZvector = new Vector3((float)newXYZposition[0], (float)newXYZposition[1] + 1, (float)newXYZposition[2]);
         unit.transform.position = newXYZvector;
-        int yolo = 32;
+        int[] tempPosition = ManagerDummy.Instance.GetLibraryCoordinates_AtUnitID(gameObject.GetComponent<unitInfo>().unitID);
+
+        tileIndex = ManagerDummy.Instance.GetIndexAtTile(ManagerDummy.Instance.GetTile_AtLibraryCoordinates(tempPosition));
+        
         
         
     }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace preAlphaLibrary
 {
-    class city
+    public class city
     {
         public string name;
         public string owner;

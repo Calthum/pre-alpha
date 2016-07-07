@@ -6,7 +6,7 @@ using System.Text;
 
 namespace preAlphaLibrary
 {
-    class playerLib
+    public class playerLib
     {
         public List<player> playerList = new List<player>();
 
@@ -35,7 +35,7 @@ namespace preAlphaLibrary
             }
         }
 
-        public void newTurn(cityLib cityLibrary)
+        public void newTurn(cityLibs cityLibrary)
         {
             for (int i = 0; i < playerList.Count; i++)
             {

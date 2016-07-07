@@ -69,7 +69,7 @@ namespace preAlphaLibrary
         {
             this.tileTypeString = "";
             this.cityID = -1;
-            this.unitIDs.Clear();
+            this.unitIDs = new List<int>();
             this.x = 0;
             this.y = 0;
             this.z = 0;

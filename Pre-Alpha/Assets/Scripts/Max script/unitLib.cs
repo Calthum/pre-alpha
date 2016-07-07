@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace preAlphaLibrary
 {
-     class unitLib
+     public class unitLib
     {
         public List<unit> unitList = new List<unit>();
         private infoLib infoLibrary = new infoLib();
@@ -51,6 +52,10 @@ namespace preAlphaLibrary
         {
             UnitType.unitID = lastUnitID();
             unitList.Add(UnitType);
+            if (UnitType.unitID == 3)
+            {
+                Debug.Log("Create 3");
+            }
             tileLibray.TileList[index].addUnit(UnitType.unitID);
         }
 
@@ -82,6 +87,10 @@ namespace preAlphaLibrary
 
         public int lastUnitID()
         {
+            if (unitList.Count == 0)
+            {
+                return 0;
+            }
             return unitList[unitList.Count - 1].unitID + 1;
         }
     }

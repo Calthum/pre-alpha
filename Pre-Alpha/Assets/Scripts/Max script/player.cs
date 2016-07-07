@@ -57,7 +57,7 @@ namespace preAlphaLibrary
                 culture -= 10;
             }
         }
-        public void addCultureAndGoldAndScience(cityLib cityLibrary)
+        public void addCultureAndGoldAndScience(cityLibs cityLibrary)
         {
             for (int i = 0; i < cityLibrary.cityList.Count; i++)
             {
