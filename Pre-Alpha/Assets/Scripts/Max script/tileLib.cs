@@ -77,6 +77,18 @@ namespace preAlphaLibrary
 
             // En stad och två enheter läggs ut
             tempTileList[54].CityID = 0;
+
+            tempTileList[84].TileTypeString = "Hill";
+            tempTileList[85].TileTypeString = "Hill";
+            tempTileList[86].TileTypeString = "Hill";
+            tempTileList[76].TileTypeString = "Hill";
+            tempTileList[75].TileTypeString = "Hill";
+
+            tempTileList[94].TileTypeString = "Hill";
+            tempTileList[95].TileTypeString = "Hill";
+            tempTileList[96].TileTypeString = "Hill";
+            tempTileList[104].TileTypeString = "Hill";
+            tempTileList[114].TileTypeString = "Hill";
             //tempTileList[104].addUnit(0);
             //tempTileList[87].addUnit(1);
             //tempTileList[125].addUnit(2);
@@ -234,7 +246,7 @@ namespace preAlphaLibrary
                 }
             }
             return new tile();
-        }    
+        }
         /// <summary>
         /// </summary>
         /// <param name="tileIndex"></param>
@@ -243,7 +255,7 @@ namespace preAlphaLibrary
         /// <param name="XYZ"></param>
         public void MoveUnit(int unitID, tile tileAt, tile tileTo, unitLib uLib)
         {
-            if (tileAt.unitExists(unitID) && Tile_IsAdjacentTo(tileAt, tileTo) && uLib.unitList[uLib.FindIndexOfUnit_AtUnitID(unitID)].MaxMovePoints > 0)
+            if (tileAt.unitExists(unitID) && Tile_IsAdjacentTo(tileAt, tileTo) && uLib.unitList[uLib.FindIndexOfUnit_AtUnitID(unitID)].CurrentMovePoints > 0)
             {
                 tileAt.removeUnit(unitID);
                 tileTo.addUnit(unitID);
@@ -258,7 +270,9 @@ namespace preAlphaLibrary
             temp[0]++;
             temp[1]++;
             //temp[2];
-            if (temp == tile2.XYZLibraryCoordinates())
+            if (temp[0] == tile2.XYZLibraryCoordinates()[0] &&
+                temp[1] == tile2.XYZLibraryCoordinates()[1] &&
+                temp[2] == tile2.XYZLibraryCoordinates()[2])
             {
                 return true;
             }
@@ -266,39 +280,49 @@ namespace preAlphaLibrary
             temp[1]++;
             temp[2]++;
             //temp[2];
-            if (temp == tile2.XYZLibraryCoordinates())
+            if (temp[0] == tile2.XYZLibraryCoordinates()[0] &&
+                temp[1] == tile2.XYZLibraryCoordinates()[1] &&
+                temp[2] == tile2.XYZLibraryCoordinates()[2])
             {
                 return true;
             }
             temp = tile1.XYZLibraryCoordinates();
             temp[2]++;
+            temp[0]--;
+            //temp[2];
+            if (temp[0] == tile2.XYZLibraryCoordinates()[0] &&
+                temp[1] == tile2.XYZLibraryCoordinates()[1] &&
+                temp[2] == tile2.XYZLibraryCoordinates()[2])
+            {
+                return true;
+            }
+            temp = tile1.XYZLibraryCoordinates();
+            temp[0]--;
+            temp[1]--;
+            //temp[2];
+            if (temp[0] == tile2.XYZLibraryCoordinates()[0] &&
+                temp[1] == tile2.XYZLibraryCoordinates()[1] &&
+                temp[2] == tile2.XYZLibraryCoordinates()[2])
+            {
+                return true;
+            }
+            temp = tile1.XYZLibraryCoordinates();
+            temp[1]--;
+            temp[2]--;
+            //temp[2];
+            if (temp[0] == tile2.XYZLibraryCoordinates()[0] &&
+                temp[1] == tile2.XYZLibraryCoordinates()[1] &&
+                temp[2] == tile2.XYZLibraryCoordinates()[2])
+            {
+                return true;
+            }
+            temp = tile1.XYZLibraryCoordinates();
+            temp[2]--;
             temp[0]++;
             //temp[2];
-            if (temp == tile2.XYZLibraryCoordinates())
-            {
-                return true;
-            }
-            temp = tile1.XYZLibraryCoordinates();
-            temp[0]--;
-            temp[1]--;
-            //temp[2];
-            if (temp == tile2.XYZLibraryCoordinates())
-            {
-                return true;
-            }
-            temp = tile1.XYZLibraryCoordinates();
-            temp[1]--;
-            temp[2]--;
-            //temp[2];
-            if (temp == tile2.XYZLibraryCoordinates())
-            {
-                return true;
-            }
-            temp = tile1.XYZLibraryCoordinates();
-            temp[2]--;
-            temp[0]--;
-            //temp[2];
-            if (temp == tile2.XYZLibraryCoordinates())
+            if (temp[0] == tile2.XYZLibraryCoordinates()[0] &&
+                temp[1] == tile2.XYZLibraryCoordinates()[1] &&
+                temp[2] == tile2.XYZLibraryCoordinates()[2])
             {
                 return true;
             }
