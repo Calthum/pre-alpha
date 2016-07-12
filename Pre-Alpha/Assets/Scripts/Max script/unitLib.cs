@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+
 namespace preAlphaLibrary
 {
-     class unitLib
+    class unitLib
     {
         public List<unit> unitList = new List<unit>();
         private infoLib infoLibrary = new infoLib();
@@ -26,8 +27,6 @@ namespace preAlphaLibrary
             // tempTileList[104].addUnit(0);
             // tempTileList[87].addUnit(1);
             // tempTileList[125].addUnit(2);
-
-
         }
 
         public int FindIndexOfUnit_AtUnitID(int unitID)
@@ -49,8 +48,13 @@ namespace preAlphaLibrary
         /// <param name="UnitType"></param>
         public void CreateNewUnit(unit UnitType, int index, tileLib tileLibray)
         {
-            UnitType.unitID = lastUnitID();
+            UnitType.unitID = unitList.Count;
             unitList.Add(UnitType);
+            if (UnitType.unitID == 3)
+            {
+                int x;
+                x = 1;
+            }
             tileLibray.TileList[index].addUnit(UnitType.unitID);
         }
 
@@ -59,16 +63,18 @@ namespace preAlphaLibrary
         /// </summary>
         /// <param name="Attacker"></param>
         /// <param name="Defender"></param>
-        public void FIGHT(unit Attacker, unit Defender)
+        public void FIGHT(unit Attacker, unit Defender, tileLib tileLibrary)
         {
             Attacker.BattleAnotherUnit(Defender);
             if (Attacker.CurrentHp <= 0)
             {
                 unitList.RemoveAt(FindIndexOfUnit_AtUnitID(Attacker.unitID));
+                tileLibrary.FindTile_AtUnitID(Attacker.unitID).removeUnit(Attacker.unitID);
             }
             if (Defender.CurrentHp <= 0)
             {
                 unitList.RemoveAt(FindIndexOfUnit_AtUnitID(Defender.unitID));
+                tileLibrary.FindTile_AtUnitID(Defender.unitID).removeUnit(Defender.unitID);
             }
         }
         
@@ -78,11 +84,6 @@ namespace preAlphaLibrary
             {
                 unitList[i].newTurn();
             }
-        }
-
-        public int lastUnitID()
-        {
-            return unitList[unitList.Count - 1].unitID + 1;
         }
     }
 }
