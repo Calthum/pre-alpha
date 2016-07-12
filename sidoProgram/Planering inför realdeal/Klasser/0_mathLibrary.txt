@@ -1,0 +1,16 @@
+
+
+
+	## mathLibrary ##
+
+	## DATAMEDLEMMAR ##
+
+	## KONTRUKTORER ##
+
+	## METODER ##
+
+	// Metoder som räknar ut matte kring tiles, som tiles inom en radie
+
+	// Allmänn mattematik som har med tiles att göra
+
+	// Ev pathfinding

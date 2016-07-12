@@ -36,7 +36,7 @@ namespace preAlphaLibrary
         /// food, prod, gold, culture, science 
         /// </summary>
         private int[] tileYield = new int[5] { 0, 0, 0, 0, 0 };
-        private infoLib infoLibrary;
+        private infoLib infoLibrary = new infoLib();
         /// <summary>
         /// en int som beskriver vilken stad som workar den tilen
         /// </summary>
@@ -109,23 +109,23 @@ namespace preAlphaLibrary
             string temp = "";
             if (tileYield[0] > 0)
             {
-                temp += tileYield[0] + " f";
+                temp += tileYield[0] + "f";
             }
             if (tileYield[1] > 0)
             {
-                temp += " " + tileYield[1] + " p";
+                temp += " " + tileYield[1] + "p";
             }
             if (tileYield[2] > 0)
             {
-                temp += " " + tileYield[2] + " g";
+                temp += " " + tileYield[2] + "g";
             }
             if (tileYield[3] > 0)
             {
-                temp += " " + tileYield[3] + " c";
+                temp += " " + tileYield[3] + "c";
             }
             if (tileYield[4] > 0)
             {
-                temp += " " + tileYield[4] + " s";
+                temp += " " + tileYield[4] + "s";
             }
             return temp;
         }

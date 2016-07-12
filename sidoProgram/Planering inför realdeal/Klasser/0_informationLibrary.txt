@@ -1,0 +1,18 @@
+
+
+
+	## informationLibrary ##
+
+	## DATAMEDLEMMAR ##
+
+	## KONTRUKTORER ##
+
+	## METODER ##
+
+	// Diverse hämta tileYield ifrån policy och effekter
+
+	// Diverse hämta x ifrån xeffekt
+
+	// Diverse premade byggnader och abilities och units
+
+	// Metoder som sköter om vilka saker som händer när du castar en ablity
