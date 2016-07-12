@@ -6,7 +6,7 @@ using System.Text;
 
 namespace preAlphaLibrary
 {
-    class tileLib
+    public class tileLib
     {
         // Datamedlemmar
         private List<tile> tileList;
@@ -120,7 +120,7 @@ namespace preAlphaLibrary
                     return i;
                 }
             }
-            return 0;
+            return -1;
         }
         /// <summary>
         /// returnerar den tile vid givet index

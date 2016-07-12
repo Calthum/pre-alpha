@@ -185,4 +185,8 @@ public class ManagerDummy : Singleton<ManagerDummy>
 
         return tilesLibrary.Tile_IsAdjacentTo(tilesLibrary.FindTile_AtUnitID(id1), tilesLibrary.FindTile_AtUnitID(id2));
     }
+    public void EndTurn()
+    {
+        unitLibrary.allUnitsNewTurn();
+    }
 }
