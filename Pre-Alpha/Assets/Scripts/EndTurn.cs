@@ -3,9 +3,10 @@ using System.Collections;
 
 public class EndTurn : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public void EndTurnNow()
+    {
         ManagerDummy.Instance.EndTurn();
-	}
+        GameObject.Find("SelectedUnit").GetComponent<SelectedUnit>().UpdateInformation();
+    }
 
 }
