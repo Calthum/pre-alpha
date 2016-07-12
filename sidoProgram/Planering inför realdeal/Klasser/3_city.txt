@@ -1,0 +1,44 @@
+
+
+
+	## city ##
+
+	en stad i spelet, kommer hanteras i cityLibrary
+	innehåller saker som total tileYield, vilka byggnader
+	och vad som byggs just nu
+
+
+	## DATAMEDLEMMAR ##
+
+        public string name
+        public string owner
+        public int cityID
+        public int foodStash
+        public int peopleCap
+        public int unassignedPeople
+        public int cityHP
+        public tileYield cityYield
+        public int unitplusCap
+        public int productionProgress
+        public building buildingInProgress
+	public int buildingLimit
+
+        public tileLib tileLibrary
+        private List<building> buildingList
+
+
+	## KONTRUKTORER ##
+
+	public city(massa variabler)
+	// Skapar en ny stad med alla variabler som du ger den
+
+	## METODER ##
+
+	public void newTurn()
+	// Lägger till production och food i staden och kollar om någon skall födas
+
+	public void checkForFinishedBuilding(unitLibrary uLib, tileLibrary tLib)
+	// Kollar om den buggnad som skapats är en byggnad eller en unit, denna kan då sedan skapa en unit om det är lämpligt
+
+	public void updateWholeCity()
+	// Uppdaterar alla Yields och andra effekter ifrån byggnader i staden

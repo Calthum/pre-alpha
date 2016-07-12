@@ -1,0 +1,50 @@
+
+
+
+	## tile ##
+
+	en tile i spelet, kommer hanteras i tileLibrary
+	kommer innehålla saker som, unitIDs, tileYield
+
+
+	## DATAMEDLEMMAR ##
+
+	public string tileTypeString
+	public int cityID
+	public int playerOwner
+	public List<int> untiIDs
+	public int x
+	public int y
+	public int z
+	public tileYield
+	public int workedByCity;
+
+
+	## KONTRUKTORER ##
+
+	public tile(string tileType, int cityID, List<int> unitIDs, int x, int y, int z)
+	// Skapar en tile såsom du vill ha den	
+
+	public tile()
+	// Skapar en tile som är helt default och oanvändbar
+
+	## METODER ##
+
+	public void assignWorkedByCity(int cityID)
+	// Ger tilen info om vilken stad som workar den just nu
+
+	public void updateTileYield(player Player)
+	// Uppdaterar tilYielden så att den stämmer överens med spelarens policies
+
+	public void removeUnit(int unitID)
+	// Tar bort en enhet med bestämt id ifrån tilen
+
+	public void addUnit(unitID)
+	// Lägger till en enhet med bestämd id till tilen
+
+	public double[] XYZUnityCoordinates(double r)
+	public double[] XYZUnityCoordiantes()
+	// Returnerar de koordinater som en tile bör ha i spelvärlden, beroende på r ibland, då r är radien på en tile
+
+	public bool unitExists(int unitID)
+	// Kollar om tilen innehåller den unit som speceificerats

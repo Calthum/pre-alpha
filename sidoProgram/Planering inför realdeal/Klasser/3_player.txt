@@ -1,0 +1,34 @@
+
+
+
+	## player ##
+
+	en spelare i spelet, kommer hanteras i playerLibrary
+	kommer innehåll saker som culture guld och science
+	även quests och policies och fantasy web i listor
+	innehålla en metod som hanterar focus cycling
+
+
+	## DATAMEDLEMMAR ##
+
+        public int gold = 0
+        public int culture = 0
+        public int unitcap = 3
+        public string owner
+        public int science = 0
+
+        public List<string> policyList
+        public List<building> availableBuildings
+
+	## KONTRUKTORER ##
+
+	public player(string owner)
+	// Skapar en spelare under kontroll av owner
+
+
+	## METODER ##
+
+	public void addPolicy(policy policyToAdd)
+	// Kollar om denna policy kan läggas till, och gör den om det går
+
+	// Diverse andra add fantasy

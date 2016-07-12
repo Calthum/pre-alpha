@@ -25,4 +25,11 @@
 
 	// diverse find metoder
 
-	public void createNewUnit(unit UnitType, int index)
+	public void createNewUnit(unit UnitType, int index)´
+	// Skapar en unit med rätt unitID osv
+
+	private int smallestEmptyUnitID()
+	// Letar igenom alla units och returnerar den minsta oanvända unitIDn
+
+	public void newTurn()
+	// Ger tillbaka alla enheter sin movement och attack points

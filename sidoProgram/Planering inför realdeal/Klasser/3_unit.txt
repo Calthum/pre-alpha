@@ -1,0 +1,48 @@
+
+
+
+	## unit ##
+
+	en unit i spelet, kommer hanteras i unitLibrary
+	innehåller saker som cooldowns och hp och atk
+	vad för tiles en unit kan gå på
+	skepp kommer ha en lista med cargo, samt ability som gör
+	att de plockar upp units och släpper units
+	innehålla en allmänn counter, för diverse saker units gör
+	såsom heroes som samlar på sig bonusar
+	och även en lista över abilities denne kan använda
+
+
+	## DATAMEDLEMMAR ##
+
+	public int MaxHp, CurrentHp
+        public int MaxAtk, CurrentAtk
+        public int MaxMovePoints, CurrentMovePoints
+        public int MaxCanAtk, CurrentCanAtk
+        public int spellCD = 0
+        public int unitID
+
+        public string owner
+        public string name
+
+	// en lista över användbara abilities
+
+	## KONTRUKTORER ##
+
+	public unit(string name, string owner, int MaxHp, int MaxAtk, int maxMovePoints, int MaxCanAtk, int unitID)
+	// Skapar en unit med alla givna variabler
+
+
+	## METODER ##
+
+	public void newTurn()
+	// Refreshar hela uniten så att den kan ta en ny tur
+
+	public void battleAnotherUnit(unit enemy)
+	// Låter dig slåss emot en annan unit
+
+	// Spells kommer funka så att:
+	// Du säger jag vill göra spell FIREAURA, eller FIREBALL
+	// Dessa spells fanns tillgängliga i listan, och det checkas för mana
+	// Lyckas du casta FIREAURA, så kommer ett script köras i infoLibrary, där informationen kring FIREAURA fanns.
+	// Lyckas du casta FIREBALL, så kommer spelet vänta på ett till click, och sedan köra metoden UnleashSpell, som sedan kör ett 		// scipt i infoLibrary

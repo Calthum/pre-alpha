@@ -1,0 +1,31 @@
+
+
+
+	## cityLibrary ##
+
+	låter dig komma åt städer på enkla sätt
+	innehåller metoder som räknar ihop alla gains från städer och summerar
+
+
+	## DATAMEDLEMMAR ##
+
+	public List<city> cityList;
+
+	## KONTRUKTORER ##
+
+	public cityLibrary()
+	// Skapar ett nytt och tomt cityLibrary, kanske med en teststad i
+
+
+	## METODER ##
+
+	// Diverse find-metoder
+
+	public void newTurn()
+	// Ger alla spelare vad de ska ha ifrån sina städer, och eventuellt så får staden mer invånare
+
+	public void captureCity(string attacker)
+	// Ändrar stadens ägare till att vara någon annan
+
+	public void battleCity(unit Attacker, city CityDefending)
+	// Låter en enhet och en stad slåss

@@ -328,5 +328,16 @@ namespace preAlphaLibrary
             }
             return false;
         }
+        public tile FindTile_AtUnitID(int unitID)
+        {
+            for (int i = 0; i < tileList.Count; i++)
+            {
+                if (tileList[i].unitExists(unitID))
+                {
+                    return tileList[i];
+                }
+            }
+            return new tile();
+        }
     }
 }
