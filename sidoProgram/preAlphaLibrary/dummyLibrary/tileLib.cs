@@ -21,6 +21,10 @@ namespace preAlphaLibrary
         public tileLib()
         {
             tileList = new List<tile>(InitateTileListLonelyIsland()) { };
+            for (int i = 0; i < tileList.Count; i++)
+            {
+                tileList[i].UpdateTileYield(new player());
+            }
         }
         /// <summary>
         /// Initerar ön lonelyIsland

@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using UnityEngine;
 
 
 namespace preAlphaLibrary
 {
-    public class tileLib
+    class tileLib
     {
         // Datamedlemmar
         private List<tile> tileList;
@@ -22,6 +21,10 @@ namespace preAlphaLibrary
         public tileLib()
         {
             tileList = new List<tile>(InitateTileListLonelyIsland()) { };
+            for (int i = 0; i < tileList.Count; i++)
+            {
+                tileList[i].UpdateTileYield(new player());
+            }
         }
         /// <summary>
         /// Initerar ön lonelyIsland
@@ -117,7 +120,7 @@ namespace preAlphaLibrary
                     return i;
                 }
             }
-            return -1;
+            return 0;
         }
         /// <summary>
         /// returnerar den tile vid givet index
@@ -260,10 +263,9 @@ namespace preAlphaLibrary
             {
                 tileAt.removeUnit(unitID);
                 tileTo.addUnit(unitID);
-                Debug.Log("This did do");
+
                 uLib.unitList[uLib.FindIndexOfUnit_AtUnitID(unitID)].CurrentMovePoints--;
             }
-            
         }
         public bool Tile_IsAdjacentTo(tile tile1, tile tile2)
         {

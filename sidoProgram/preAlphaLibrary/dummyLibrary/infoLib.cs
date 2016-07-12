@@ -10,9 +10,10 @@ namespace preAlphaLibrary
     {
         public int[] getTileTypeYield(string tileTypeString)
         {
-            if (tileTypeString == "Sand") { return new int[5] { 0, 1, 1, 0, 0 }; }
-            if (tileTypeString == "Forest") { return new int[5] { 1, 2, 0, 0, 0 }; }
-            if (tileTypeString == "Ocean") { return new int[5] { 2, 0, 1, 0, 0 }; }
+            if (tileTypeString == "Beige") { return new int[5] { 0, 1, 1, 0, 0 }; }
+            if (tileTypeString == "Green") { return new int[5] { 1, 2, 0, 0, 0 }; }
+            if (tileTypeString == "Blue") { return new int[5] { 2, 0, 1, 0, 0 }; }
+            if (tileTypeString == "Hill") { return new int[5] { 0, 3, 0, 1, 0 }; }
 
             // om den inte finner en tiletype i databasen så ger den tillbaka en rolig tile
             return new int[5] { 1, 3, 3, 7, 0 };

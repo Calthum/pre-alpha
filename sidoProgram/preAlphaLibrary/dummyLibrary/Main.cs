@@ -65,9 +65,7 @@ namespace preAlphaLibrary
                 Console.Write("   ");
                 Console.SetCursorPosition(x - 2, y);
                 //Console.Write(i);
-                Console.Write(tileList[i].XYZLibraryCoordinates()[0] + " ");
-                Console.Write(tileList[i].XYZLibraryCoordinates()[1] + " ");
-                Console.Write(tileList[i].XYZLibraryCoordinates()[2]);
+                Console.Write(tileList[i].TileYieldString());
 
                 if (tileList[i].CityID == 0)
                 {
