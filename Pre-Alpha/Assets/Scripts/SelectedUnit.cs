@@ -17,6 +17,7 @@ public class SelectedUnit : MonoBehaviour {
         text = GameObject.Find("MaxHpText").GetComponent<Text>();
         unitinfo = unit.GetComponent<unitInfo>();
         UpdateInformation();
+        
 
             
 

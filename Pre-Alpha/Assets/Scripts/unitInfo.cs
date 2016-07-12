@@ -77,4 +77,14 @@ public class unitInfo : MonoBehaviour {
         
     }
 
+    public void Death()
+    {
+
+        if (ManagerDummy.Instance.IsUnitDead(unitID) == true)
+        {
+            Destroy(gameObject);
+        }
+        
+    }
+
 }

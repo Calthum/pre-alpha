@@ -19,6 +19,10 @@ public class ManagerDummy : Singleton<ManagerDummy>
     {
         return tilesLibrary.Count;
     }
+    public int UnitCount()
+    {
+        return unitLibrary.unitList.Count;
+    }
 
     public void initializeAll()
     {
@@ -142,5 +146,38 @@ public class ManagerDummy : Singleton<ManagerDummy>
     public int GetIndexAtTile(tile tile)
     {
        return tilesLibrary.FindIndex_AtTile(tile);
+    }
+    public bool IsUnitOnTile(int tileIndex, tile tile)
+    {
+        if (tile.unitExists(tileIndex) == true)
+        {
+            return true;
+
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public void FIGHT(unit u1, unit u2)
+    {
+        unitLibrary.FIGHT(u1, u2);
+    }
+    public unit GetUnitByID(int ID)
+    {
+
+        return unitLibrary.unitList[UnitIndex(ID)];
+    }
+    public bool IsUnitDead(int ID)
+    {
+        for (int i = 0; i < unitLibrary.unitList.Count; i++)
+        {
+
+        if (unitLibrary.unitList[i].unitID == ID)
+        {
+                return false;
+        }
+        }
+        return true;
     }
 }
