@@ -10,7 +10,7 @@ public class ManagerDummy : Singleton<ManagerDummy>
     private infoLib infoLibrary;
     private tileLib tilesLibrary;
     private playerLib playerLibrary;
-    private cityLib cityLibrary;
+    private cityLibs cityLibrary;
     private unitLib unitLibrary;
     private tile tile;
     
@@ -25,7 +25,7 @@ public class ManagerDummy : Singleton<ManagerDummy>
         infoLibrary = new infoLib();
         tilesLibrary = new tileLib();
         playerLibrary = new playerLib();
-        cityLibrary = new cityLib(tilesLibrary);
+        cityLibrary = new cityLibs(tilesLibrary);
         unitLibrary = new unitLib(tilesLibrary);
         tile = new tile();
     }
@@ -33,13 +33,18 @@ public class ManagerDummy : Singleton<ManagerDummy>
     public double[] GetPosition(int index)
     {
 
-        return tilesLibrary.WorldCoordinates_AtIndex(index, 1.05);
+        return tilesLibrary.WorldCoordinates_AtIndex(index);
     }
 
     public string GetColor(int index)
     {
 
         return tilesLibrary.Color_AtIndex(index);
+    }
+    public string GetTileType(int index)
+    {
+
+        return tilesLibrary.Tile_AtIndex(index).TileTypeString;
     }
     public int GetCityID(int index)
     {
@@ -82,7 +87,9 @@ public class ManagerDummy : Singleton<ManagerDummy>
 
     public void MoveUnit(int unitID, tile tileAT, tile tileTo)
     {
+        int x;
         tilesLibrary.MoveUnit(unitID, tileAT, tileTo, unitLibrary);
+
     }
 
     public tile GetTileByIndex(int index)
@@ -96,15 +103,44 @@ public class ManagerDummy : Singleton<ManagerDummy>
         return tilesLibrary.FindTile_AtLibraryCoordinates(XYZ_coordinates);
     }
 
-    public double[] search(int unitID)
+    public int[] GetLibraryCoordinates_AtUnitID(int unitID)
     {
         for (int i = 0; i < tilesLibrary.Count; i++)
         {
-            if (tilesLibrary.Tile_AtIndex(i).UnitList[0] == unitID)
+            if (tilesLibrary.Tile_AtIndex(i).unitExists(unitID))
             {
-                return tilesLibrary.WorldCoordinates_AtIndex(i);
+                return tilesLibrary.LibraryCoordinates_AtIndex(i);
             }
         }
-        return new tile().XYZUnityCoordinates();
+        return new tile().XYZLibraryCoordinates();
+    }
+    public double[] SearchWorldCoords(int unitID)
+    { 
+            for (int i = 0; i < tilesLibrary.Count; i++)
+            {
+                if (tilesLibrary.Tile_AtIndex(i).unitExists(unitID))
+                {
+                    return tilesLibrary.Tile_AtIndex(i).XYZUnityCoordinates();
+                }
+            }
+        return new tile().XYZUnityCoordinates();   
+    }
+    public tile GetTile_AtLibraryCoordinates(int[] coord)
+    {
+        for (int i = 0; i < tilesLibrary.Count; i++)
+        {
+            if (tilesLibrary.Tile_AtIndex(i).XYZLibraryCoordinates()[0] == coord[0] &&
+                tilesLibrary.Tile_AtIndex(i).XYZLibraryCoordinates()[1] == coord[1] &&
+                tilesLibrary.Tile_AtIndex(i).XYZLibraryCoordinates()[2] == coord[2])
+            {
+                return tilesLibrary.Tile_AtIndex(i);
+            }
+        }
+        return new tile();
+    }
+
+    public int GetIndexAtTile(tile tile)
+    {
+       return tilesLibrary.FindIndex_AtTile(tile);
     }
 }

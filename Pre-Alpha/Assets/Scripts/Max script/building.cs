@@ -6,7 +6,7 @@ using System.Text;
 
 namespace preAlphaLibrary
 {
-    class building
+    public class building
     {
         public string name = "defaultBuilding";
         public string info = "en default building";
