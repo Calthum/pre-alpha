@@ -6,11 +6,11 @@ using System.Text;
 
 namespace preAlphaLibrary
 {
-    public class cityLibs
+    class cityLib
     {
         public List<city> cityList = new List<city>();
         
-        public cityLibs(tileLib tileLibrary)
+        public cityLib(tileLib tileLibrary)
         {
             cityList.Add(new city("maxTown", "max", tileLibrary, 0));
         }

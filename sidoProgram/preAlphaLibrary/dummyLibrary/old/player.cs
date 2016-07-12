@@ -6,7 +6,7 @@ using System.Text;
 
 namespace preAlphaLibrary
 {
-    public class player
+    class player
     {
         public int gold = 0;
         public int culture = 0;
@@ -57,7 +57,7 @@ namespace preAlphaLibrary
                 culture -= 10;
             }
         }
-        public void addCultureAndGoldAndScience(cityLibs cityLibrary)
+        public void addCultureAndGoldAndScience(cityLib cityLibrary)
         {
             for (int i = 0; i < cityLibrary.cityList.Count; i++)
             {
