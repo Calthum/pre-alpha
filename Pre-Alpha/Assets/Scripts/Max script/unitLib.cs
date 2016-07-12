@@ -61,7 +61,11 @@ namespace preAlphaLibrary
         /// <param name="Defender"></param>
         public void FIGHT(unit Attacker, unit Defender, tileLib tileLibrary)
         {
+            if (Attacker.CurrentCanAtk > 0)
+            {
+
             Attacker.BattleAnotherUnit(Defender);
+            }
             if (Attacker.CurrentHp <= 0)
             {
                 unitList.RemoveAt(FindIndexOfUnit_AtUnitID(Attacker.unitID));
@@ -69,8 +73,14 @@ namespace preAlphaLibrary
             }
             if (Defender.CurrentHp <= 0)
             {
+                tileLibrary.FindTile_AtUnitID(Attacker.unitID).removeUnit(Attacker.unitID);
+
+                tileLibrary.FindTile_AtUnitID(Defender.unitID).addUnit(Attacker.unitID);
                 unitList.RemoveAt(FindIndexOfUnit_AtUnitID(Defender.unitID));
                 tileLibrary.FindTile_AtUnitID(Defender.unitID).removeUnit(Defender.unitID);
+
+              
+
             }
         }
         

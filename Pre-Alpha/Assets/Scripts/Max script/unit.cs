@@ -60,11 +60,12 @@ namespace preAlphaLibrary
 
         public void BattleAnotherUnit(unit Enemy)
         {
+
             this.CurrentHp -= Enemy.CurrentAtk;
             Enemy.CurrentHp -= this.CurrentAtk;
 
             this.CurrentMovePoints = 0;
-            Enemy.CurrentMovePoints = 0;
+            
 
             this.CurrentCanAtk -= 1;
         }

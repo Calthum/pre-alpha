@@ -161,7 +161,7 @@ public class ManagerDummy : Singleton<ManagerDummy>
     }
     public void FIGHT(unit u1, unit u2)
     {
-        unitLibrary.FIGHT(u1, u2);
+        unitLibrary.FIGHT(u1, u2, tilesLibrary);
     }
     public unit GetUnitByID(int ID)
     {
@@ -179,5 +179,10 @@ public class ManagerDummy : Singleton<ManagerDummy>
         }
         }
         return true;
+    }
+    public bool IsInRange(int id1, int id2)
+    {
+
+        return tilesLibrary.Tile_IsAdjacentTo(tilesLibrary.FindTile_AtUnitID(id1), tilesLibrary.FindTile_AtUnitID(id2));
     }
 }

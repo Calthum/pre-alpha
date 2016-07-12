@@ -35,7 +35,11 @@ public class tileInfo : MonoBehaviour {
             
             List<int> tileIndex = ManagerDummy.Instance.GetUnitID(tile);
             int tileIndexSingle = tileIndex[0];
+            if (ManagerDummy.Instance.IsInRange(unit.GetComponent<unitInfo>().unitID, tileIndexSingle))
+            {
             ManagerDummy.Instance.FIGHT(ManagerDummy.Instance.GetUnitByID(unit.GetComponent<unitInfo>().unitID), ManagerDummy.Instance.GetUnitByID(tileIndexSingle));
+            }
+            unit.GetComponent<unitInfo>().UpdateUnitPosition(unit);
             foreach (GameObject go in GameObject.FindGameObjectsWithTag("Orc"))
             {
                 go.GetComponent<unitInfo>().Death();
