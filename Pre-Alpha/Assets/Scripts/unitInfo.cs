@@ -20,6 +20,8 @@ public class unitInfo : MonoBehaviour {
 	// Use this for initialization
 	 void Start () {
         selectedUnit = GameObject.Find("SelectedUnit");
+        GameObject go = gameObject;
+
 
     }
     public void Initialize(int inputID, int indexInput)
@@ -43,6 +45,7 @@ public class unitInfo : MonoBehaviour {
 
         selectedUnit.GetComponent<SelectedUnit>().SelectNewUnit(gameObject);
         }
+
     }
     public void UpdateUnitInfo()
     {
@@ -82,6 +85,9 @@ public class unitInfo : MonoBehaviour {
 
         if (ManagerDummy.Instance.IsUnitDead(unitID) == true)
         {
+            GameObject dead = GameObject.Find("Dead Orc");
+            Instantiate(dead, gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
+            dead.GetComponent<Rigidbody>().AddForce(1000, 0, 0, ForceMode.Impulse);
             Destroy(gameObject);
         }
         

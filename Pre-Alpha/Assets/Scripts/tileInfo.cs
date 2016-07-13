@@ -23,7 +23,7 @@ public class tileInfo : MonoBehaviour {
         Vector3 position = gameObject.transform.position;
         int tile = gameObject.GetComponent<tileInfo>().tileID;
         GameObject unit = selectedUnit.GetComponent<SelectedUnit>().selectedUnit;
-
+        #region UnitSelected
         if (ManagerDummy.Instance.GetUnitID(tile).Count == 0)
         {
         ManagerDummy.Instance.MoveUnit(unit.GetComponent<unitInfo>().unitID, ManagerDummy.Instance.GetTile_AtLibraryCoordinates(ManagerDummy.Instance.GetLibraryCoordinates_AtUnitID(unit.GetComponent<unitInfo>().unitID)), ManagerDummy.Instance.GetTileByIndex(tile));
@@ -52,11 +52,9 @@ public class tileInfo : MonoBehaviour {
                 selectedUnit.GetComponent<SelectedUnit>().UpdateInformation();
             }
         }
-        if (selectedUnit.GetComponent<SelectedUnit>().selectedUnit.GetComponent<unitInfo>().currentMovement != 0)
-        {
+        #endregion
 
-            //selectedUnit.GetComponent<SelectedUnit>().selectedUnit.transform.position = position;
-        }
+
     }
 
     // Update is called once per frame

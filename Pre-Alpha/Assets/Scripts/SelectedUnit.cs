@@ -7,6 +7,7 @@ public class SelectedUnit : MonoBehaviour {
     public Text text;
     public unitInfo unitinfo;
     public GameObject spellButton;
+    public string CityOrUnit;
     
     // Use this for initialization
     void Start () {
@@ -15,15 +16,26 @@ public class SelectedUnit : MonoBehaviour {
 
     public void SelectNewUnit(GameObject unit)
     {
+        CityOrUnit = "Unit";
+        if (selectedUnit != null)
+        {
+        selectedUnit.GetComponent<Renderer>().material.color = Color.gray;
+
+        }
         selectedUnit = unit;
         text = GameObject.Find("MaxHpText").GetComponent<Text>();
+        selectedUnit.GetComponent<Renderer>().material.color = Color.red;
         unitinfo = unit.GetComponent<unitInfo>();
         UpdateInformation();
-        
+        }
 
-            
+    public void SelectNewCity(GameObject city)
+    {
+        CityOrUnit = "City";
 
     }
+        
+
     public void UpdateInformation()
     {
         selectedUnit.GetComponent<unitInfo>().UpdateUnitInfo();

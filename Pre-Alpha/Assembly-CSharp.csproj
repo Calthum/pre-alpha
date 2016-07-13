@@ -45,6 +45,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CityInfo.cs" />
+     <Compile Include="Assets\Fly.cs" />
      <Compile Include="Assets\Scripts\EndTurn.cs" />
      <Compile Include="Assets\Scripts\ManagerDummy.cs" />
      <Compile Include="Assets\Scripts\Max script\Program.cs" />
