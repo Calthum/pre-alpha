@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class MoveCamera : MonoBehaviour {
 
     GameObject Camera;
@@ -16,6 +17,7 @@ public class MoveCamera : MonoBehaviour {
         if (Input.GetKey(KeyCode.W))
         {
             Camera.transform.Translate(0, scrollSpeed, 0);
+            
         }
         if (Input.GetKey(KeyCode.A))
         {

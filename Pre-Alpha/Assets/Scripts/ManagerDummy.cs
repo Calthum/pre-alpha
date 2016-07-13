@@ -189,4 +189,16 @@ public class ManagerDummy : Singleton<ManagerDummy>
     {
         unitLibrary.allUnitsNewTurn();
     }
+    public bool UnitIsHero(int ID)
+    {
+        if (GetUnitByID(ID).name == "Hero")
+        {
+            return true;
+        }
+        return false;
+    }
+    public void CastSpell(int ID)
+    {
+        GetUnitByID(ID).castSpellPlaceholder();
+    }
 }

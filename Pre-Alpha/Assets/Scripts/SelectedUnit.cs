@@ -6,9 +6,10 @@ public class SelectedUnit : MonoBehaviour {
     public GameObject selectedUnit;
     public Text text;
     public unitInfo unitinfo;
+    public GameObject spellButton;
     // Use this for initialization
     void Start () {
-       
+        spellButton = GameObject.Find("SpellButton");
     }
 
     public void SelectNewUnit(GameObject unit)
@@ -31,6 +32,19 @@ public class SelectedUnit : MonoBehaviour {
             unitinfo.currentMovement.ToString() + "/" + unitinfo.maxMovement.ToString() + "    " +
             "Attack: " + unitinfo.currentAtk.ToString() + "/" + unitinfo.maxAtk.ToString() + "  " +
             unitinfo.currentCanAtk.ToString() + "/" + unitinfo.maxCanAtk.ToString();
+        if (ManagerDummy.Instance.UnitIsHero(selectedUnit.GetComponent<unitInfo>().unitID))
+        {
+            spellButton.SetActive(true);
+        }
+        else
+        {
+            spellButton.SetActive(false);
+        }
+    }
+    public void DEATHUPONALL()
+    {
+        ManagerDummy.Instance.CastSpell(selectedUnit.GetComponent<unitInfo>().unitID);
+        UpdateInformation();
     }
 
     //public void MoveUnit(GameObject unit, int tile)
