@@ -6,14 +6,14 @@ public class MoveCamera : MonoBehaviour
 {
 
     GameObject Camera;
-    int scrollSpeed;
+    float scrollSpeed;
     float angle;
 
     // Use this for initialization
     void Start()
     {
         Camera = GameObject.Find("Main Camera");
-        scrollSpeed = 1;
+        scrollSpeed = 0.09f;
         angle = Mathf.PI / 8;
         Camera.transform.eulerAngles = new Vector3(90 - angle * 180 / Mathf.PI, 0, 0);
     }
@@ -23,7 +23,7 @@ public class MoveCamera : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            Camera.transform.Translate(0, scrollSpeed * Mathf.Cos(angle), scrollSpeed * Mathf.Sin(angle))
+            Camera.transform.Translate(0, scrollSpeed * Mathf.Cos(angle), scrollSpeed * Mathf.Sin(angle));
         }
         if (Input.GetKey(KeyCode.A))
         {

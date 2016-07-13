@@ -7,6 +7,7 @@ public class SelectedUnit : MonoBehaviour {
     public Text text;
     public unitInfo unitinfo;
     public GameObject spellButton;
+    
     // Use this for initialization
     void Start () {
         spellButton = GameObject.Find("SpellButton");
@@ -46,18 +47,6 @@ public class SelectedUnit : MonoBehaviour {
         ManagerDummy.Instance.CastSpell(selectedUnit.GetComponent<unitInfo>().unitID);
         UpdateInformation();
     }
-
-    //public void MoveUnit(GameObject unit, int tile)
-    //{
-    //    double[] positionArray = ManagerDummy.Instance.GetPosition(tile);
-    //    float xPos = (float)positionArray[0];
-    //    float yPos = (float)positionArray[1];
-    //    float zPos = (float)positionArray[2];
-    //    Vector3 tilePosition = new Vector3(xPos, yPos, zPos);
-    //    selectedUnit.GetComponent<unitInfo>().transform.position = tilePosition;
-    //    ManagerDummy.Instance.MoveUnit(unit.GetComponent<unitInfo>().unitID, ManagerDummy.Instance.GetTileByIndex(tile))
-    //}
-	
 	// Update is called once per frame
 	void Update () {
 	
