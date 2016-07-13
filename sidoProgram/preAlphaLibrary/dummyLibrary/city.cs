@@ -28,34 +28,36 @@ namespace preAlphaLibrary
         {
             this.name = name;
             this.owner = owner;
-            this.peopleCap = 1;
+            this.peopleCap = 5;
             this.foodStash = 0;
             this.tileLibrary = tileLibrary;
             this.cityID = cityID;
         }
 
-        public void newTurn()
+        public void newTurn(unitLib ulib)
         {
-            foodStash += cityYield[2];
-            productionProgress += cityYield[0];
+            foodStash += cityYield[0];
+            productionProgress += cityYield[1];
             if (foodStash > 10)
             {
                 peopleCap += 1;
                 unassignedPeople += 1;
             }
+            checkForFinishedBuilding(ulib);
+            UpdateWholeCity();
         }
-        public void checkForFinishedBuilding(unitLib uLib, tileLib tLib)
+        public void checkForFinishedBuilding(unitLib uLib)
         {
             if (productionProgress >= buildingInProgress.prodCost)
             {
                 if (buildingInProgress.name == "Scout")
                 {
-                    uLib.CreateNewUnit(infoLibrary.Scout("max", 0), tLib.FindIndex_AtTile(tLib.FindTile_AtCityID(cityID)), tLib);
+                    uLib.CreateNewUnit(infoLibrary.Scout("max", 0), tileLibrary.FindIndex_AtTile(tileLibrary.FindTile_AtCityID(cityID)), tileLibrary);
                     buildingInProgress = null;
                 }
                 else if (buildingInProgress.name == "Warrior")
                 {
-                    uLib.CreateNewUnit(infoLibrary.Warrior("max", 0), tLib.FindIndex_AtTile(tLib.FindTile_AtCityID(cityID)), tLib);
+                    uLib.CreateNewUnit(infoLibrary.Warrior("max", 0), tileLibrary.FindIndex_AtTile(tileLibrary.FindTile_AtCityID(cityID)), tileLibrary);
                     buildingInProgress = null;
                 }
                 else
