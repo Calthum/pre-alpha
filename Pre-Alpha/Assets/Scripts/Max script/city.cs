@@ -29,6 +29,7 @@ namespace preAlphaLibrary
             this.name = name;
             this.owner = owner;
             this.peopleCap = 5;
+            this.unassignedPeople = 5;
             this.foodStash = 0;
             this.tileLibrary = tileLibrary;
             this.cityID = cityID;

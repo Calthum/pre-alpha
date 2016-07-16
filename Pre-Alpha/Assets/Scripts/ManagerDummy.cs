@@ -201,4 +201,34 @@ public class ManagerDummy : Singleton<ManagerDummy>
     {
         GetUnitByID(ID).castSpellPlaceholder();
     }
-}
+    public bool AssignTile(int CityID, int tileID, int a)
+    {
+
+
+            for (int i = 0; i < cityLibrary.cityList.Count; i++)
+            {
+
+                if (cityLibrary.cityList[i].cityID == CityID)
+                {
+                    if (a == 1)
+                    {
+                        if (cityLibrary.cityList[i].CanAssignWorkedTile())
+                        {
+
+                        tilesLibrary.TileList[tileID].AssingWorked(CityID);
+                        return true;
+                        }
+
+                    }
+                    if (a == -1)
+                    {
+                    cityLibrary.cityList[i].unassignedPeople++;
+                    tilesLibrary.TileList[tileID].AssingWorked(-1);
+                    return true;
+                    }
+                }
+            }
+        return false;
+        }
+    
+    }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SelectedUnit : MonoBehaviour {
     public GameObject selectedUnit;
@@ -9,6 +10,7 @@ public class SelectedUnit : MonoBehaviour {
     public GameObject spellButton;
     public string CityOrUnit;
     
+    
     // Use this for initialization
     void Start () {
         spellButton = GameObject.Find("SpellButton");
@@ -16,6 +18,10 @@ public class SelectedUnit : MonoBehaviour {
 
     public void SelectNewUnit(GameObject unit)
     {
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Tile"))
+        {
+            go.GetComponent<tileInfo>().ChangeColorBack();
+        }
         CityOrUnit = "Unit";
         if (selectedUnit != null)
         {
@@ -31,8 +37,22 @@ public class SelectedUnit : MonoBehaviour {
 
     public void SelectNewCity(GameObject city)
     {
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Tile"))
+        {
+            go.GetComponent<tileInfo>().ChangeColorBack();
+        }
         CityOrUnit = "City";
+        if (selectedUnit != null)
+        {
+            selectedUnit.GetComponent<Renderer>().material.color = Color.gray;
+        }
+            selectedUnit = city;
+            selectedUnit.GetComponent<Renderer>().material.color = Color.red;
 
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Tile"))
+        {
+            go.GetComponent<tileInfo>().ChangeColor(selectedUnit.GetComponent<CityInfo>().CityID);
+        }
     }
         
 
@@ -59,6 +79,17 @@ public class SelectedUnit : MonoBehaviour {
         ManagerDummy.Instance.CastSpell(selectedUnit.GetComponent<unitInfo>().unitID);
         UpdateInformation();
     }
+
+    public void HighlightAssignedTiles()
+    {
+        List<GameObject> tiles = selectedUnit.GetComponent<CityInfo>().tilesAssignedToCity;
+        for (int i = 0; i < tiles.Count; i++)
+        {
+            tiles[i].GetComponent<Renderer>().material.color = Color.red;
+        }
+
+    }
+
 	// Update is called once per frame
 	void Update () {
 	

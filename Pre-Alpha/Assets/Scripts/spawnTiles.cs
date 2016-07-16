@@ -33,7 +33,7 @@ public class spawnTiles : MonoBehaviour {
             {
 
             tileClone = Instantiate(instantiateThis, clonePos, Quaternion.Euler(-90, 30, 0)) as GameObject;
-            tileClone.GetComponent<tileInfo>().Initialize(tilesIndex);
+            
             }
             #endregion
             #region GetTileType
@@ -63,13 +63,16 @@ public class spawnTiles : MonoBehaviour {
                 default:
                     break;
             }
+            tileClone.GetComponent<tileInfo>().Initialize(tilesIndex);
             #endregion
             #region GetCities
             int cityID = ManagerDummy.Instance.GetCityID(tilesIndex);
             if (cityID != -1)
             {
                 GameObject cityClone = Instantiate(instantiateCity, clonePos, Quaternion.identity) as GameObject;
+                cityClone.GetComponent<CityInfo>().Initialize(cityID);
             }
+            
             #endregion
             #region GetUnits
             List<int> unitsOnTile = new List<int>();
