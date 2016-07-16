@@ -15,8 +15,6 @@ namespace alpha1
     {
         static void Main(string[] args)
         {
-            techTest();
-            Console.ReadKey();
 
             testAll();
         }
@@ -36,6 +34,9 @@ namespace alpha1
             Console.WriteLine();
 
             questTest();
+            Console.WriteLine();
+
+            techTest();
             Console.WriteLine();
         }
 
